@@ -1,0 +1,68 @@
+* {
+    height: 100%;
+}
+
+body{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.login-area{
+    width: 45%;
+    height: fit-content;
+    background: #1a1a1a;
+    margin: auto 20px;
+    padding:15px 0;
+}
+
+.logo{
+    height: 150px;
+    width: 150px;
+    margin: 10px auto;
+}
+
+.form-area{
+    padding: 15px;
+}
+
+
+.form-area form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+input{
+    margin: 10px auto;
+    width: 300px;
+    padding: 8px 5px;
+    text-align: center;
+
+}
+.checkBox{
+    display: flex;
+    align-items: center;
+    width: 320px;
+    margin: auto auto;
+
+}
+.checkbox-class{
+    flex: 0.6;
+    width: 20px;
+    height: 10px;
+    background: wheat;
+}
+.submitBtn{
+    background: #6b6b6b;
+    text-align: center;
+    padding:10px 5px;
+    width: 100px;
+    margin: 10px auto;
+    border-radius: 10px;
+    color: white;
+}
+
+a{
+    text-decoration: none;
+    color: aliceblue;
+    font-size: 12px;
+}

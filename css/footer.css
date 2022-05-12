@@ -4,15 +4,36 @@
     justify-content: space-around;
     height: 200px;
     padding: 10px 5px 5px 0;
-    background: black;
+    background: #6b6b6b;
 }
 
 .footer-links ul{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    list-style: none;
+
 }
 
+.footer-links ul li{
+    text-decoration: none;
+}
 .footer-links li a {
     color: white;
+}
+
+.detail-section{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    justify-items: center;
+}
+.card-payment img{
+    border-radius: 5px;
+}
+
+.fa-brands{
+    height: 150px;
+    width: 50px;
 }

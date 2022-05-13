@@ -6,6 +6,7 @@ const hScroll = document.querySelector('.horizontal-scroll');
 const btnSLeft = document.querySelector('#btn-scroll-left');
 const btnSRight = document.querySelector('#btn-scroll-right');
 
+
 btnSLeft.style.opacity = "0";
 
 

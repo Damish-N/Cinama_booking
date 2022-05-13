@@ -1,67 +1,72 @@
-* {
-    height: 100%;
-}
-
-body{
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap'); 
+body {
     display: flex;
     flex-direction: row;
     justify-content: center;
-}
-.login-area{
-    width: 45%;
-    height: fit-content;
-    background: #1a1a1a;
-    margin: auto 20px;
-    padding:15px 0;
+    font-family: 'Montserrat', sans-serif;
+    
 }
 
-.logo{
-    height: 150px;
-    width: 150px;
-    margin: 10px auto;
+.container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
-.form-area{
+.login-area {
+    width: 500px;
+    height: auto;
+    padding: 15px 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.logo img {
+    width: 350px;
+    margin-left: 60px;
+    object-fit: cover;
+
+}
+
+.form-area {
     padding: 15px;
 }
 
 
-.form-area form{
+.form-area form {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-input{
-    margin: 10px auto;
-    width: 300px;
-    padding: 8px 5px;
-    text-align: center;
 
-}
-.checkBox{
+.checkBox {
     display: flex;
     align-items: center;
     width: 320px;
     margin: auto auto;
 
 }
-.checkbox-class{
+
+.checkbox-class {
     flex: 0.6;
     width: 20px;
     height: 10px;
     background: wheat;
 }
-.submitBtn{
+
+.submitBtn {
     background: #6b6b6b;
     text-align: center;
-    padding:10px 5px;
+    padding: 10px 5px;
     width: 100px;
     margin: 10px auto;
     border-radius: 10px;
     color: white;
 }
 
-a{
+a {
     text-decoration: none;
     color: aliceblue;
     font-size: 12px;

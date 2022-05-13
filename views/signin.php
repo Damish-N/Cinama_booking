@@ -13,7 +13,7 @@
     <title></title>
 </head>
 
-<body style="background-image: url(./image/h7-slide6.jpg);">
+<body style="background-image: url(../image/h7-slide6.jpg);">
 
     <div class="login-area">
 

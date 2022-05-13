@@ -15,21 +15,8 @@
 
 <body style="background-image: url(../image/h5-slide.jpg);">
     <div class="container">
-        <div class="leftCont">
-            <div class="logo">
-                <img src="../image/logo.png" alt="logo-image">
-            </div>
-            <div>
-                <h1 style="text-align: center;color: aliceblue">Welcome </h1>
-                <!-- <h2 style="font-weight: bolder; text-align: center;color: white;margin: 0">Welcome Back</h2> -->
-
-            </div>
-        </div>
-
+        
         <div class="login-area">
-
-
-
             <div class="form-area">
                 <form action="" method="post" class="sign-in-form">
                     <h2 class="title">Sign up</h2>
@@ -52,7 +39,99 @@
 
                     <div class="input-field">
                         <i class="fas fa-user"></i>
+                        <input type="text" name="username" placeholder="First Name"
+                            value="<?php if(isset($username)){ echo $username;} ?>"
+                            oninput="validateUsername(this, 0,50)" />
+                    </div>
+
+                    <?php if(count($errors)>0): ?>
+                    <?php if(isset($errors['username'])): ?>
+                    <div class="alert error" id="alert00" role="alert">
+                        <p><i class="fas fa-exclamation-circle"></i><?php echo $errors['username'];  ?></p>
+                    </div>
+                    <?php else:  ?>
+                    <div class="alert error" id="alert00" role="alert" style="display:none">
+                        <p><i class="fas fa-exclamation-circle"></i></p>
+                    </div>
+                    <?php endif; ?>
+                    <?php else:  ?>
+                    <div class="alert error" id="alert00" role="alert" style="display:none">
+                        <p><i class="fas fa-exclamation-circle"></i></p>
+                    </div>
+                    <?php endif;  ?>
+
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" name="username" placeholder="Last Name"
+                            value="<?php if(isset($username)){ echo $username;} ?>"
+                            oninput="validateUsername(this, 0,50)" />
+                    </div>
+
+                    <?php if(count($errors)>0): ?>
+                    <?php if(isset($errors['username'])): ?>
+                    <div class="alert error" id="alert00" role="alert">
+                        <p><i class="fas fa-exclamation-circle"></i><?php echo $errors['username'];  ?></p>
+                    </div>
+                    <?php else:  ?>
+                    <div class="alert error" id="alert00" role="alert" style="display:none">
+                        <p><i class="fas fa-exclamation-circle"></i></p>
+                    </div>
+                    <?php endif; ?>
+                    <?php else:  ?>
+                    <div class="alert error" id="alert00" role="alert" style="display:none">
+                        <p><i class="fas fa-exclamation-circle"></i></p>
+                    </div>
+                    <?php endif;  ?>
+
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
                         <input type="text" name="username" placeholder="Username"
+                            value="<?php if(isset($username)){ echo $username;} ?>"
+                            oninput="validateUsername(this, 0,50)" />
+                    </div>
+
+                    <?php if(count($errors)>0): ?>
+                    <?php if(isset($errors['username'])): ?>
+                    <div class="alert error" id="alert00" role="alert">
+                        <p><i class="fas fa-exclamation-circle"></i><?php echo $errors['username'];  ?></p>
+                    </div>
+                    <?php else:  ?>
+                    <div class="alert error" id="alert00" role="alert" style="display:none">
+                        <p><i class="fas fa-exclamation-circle"></i></p>
+                    </div>
+                    <?php endif; ?>
+                    <?php else:  ?>
+                    <div class="alert error" id="alert00" role="alert" style="display:none">
+                        <p><i class="fas fa-exclamation-circle"></i></p>
+                    </div>
+                    <?php endif;  ?>
+
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" name="username" placeholder="City"
+                            value="<?php if(isset($username)){ echo $username;} ?>"
+                            oninput="validateUsername(this, 0,50)" />
+                    </div>
+
+                    <?php if(count($errors)>0): ?>
+                    <?php if(isset($errors['username'])): ?>
+                    <div class="alert error" id="alert00" role="alert">
+                        <p><i class="fas fa-exclamation-circle"></i><?php echo $errors['username'];  ?></p>
+                    </div>
+                    <?php else:  ?>
+                    <div class="alert error" id="alert00" role="alert" style="display:none">
+                        <p><i class="fas fa-exclamation-circle"></i></p>
+                    </div>
+                    <?php endif; ?>
+                    <?php else:  ?>
+                    <div class="alert error" id="alert00" role="alert" style="display:none">
+                        <p><i class="fas fa-exclamation-circle"></i></p>
+                    </div>
+                    <?php endif;  ?>
+
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" name="username" placeholder="Contact Number"
                             value="<?php if(isset($username)){ echo $username;} ?>"
                             oninput="validateUsername(this, 0,50)" />
                     </div>
@@ -131,6 +210,17 @@
                 </h5>
             </div>
 
+        </div>
+
+        <div class="rightCont">
+            <div class="logo" style="margin-top: 100px;">
+                <img src="../image/logo.png" alt="logo-image">
+            </div>
+            <div>
+                <h1 style="text-align: center;color: aliceblue">Welcome</h1>
+                <!-- <h2 style="font-weight: bolder; text-align: center;color: white;margin: 0">Welcome Back</h2> -->
+
+            </div>
         </div>
     </div>
 </body>

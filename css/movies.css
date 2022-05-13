@@ -1,0 +1,91 @@
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    /*align-items: center;*/
+    background: white;
+    margin-top: 50px;
+    height: 100vh;
+}
+
+.horizontal-scroll {
+    width: 95%;
+    height: 300px;
+    background: black;
+    /*border: 1px solid red;*/
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.horizontal-scroll .btn-scroll {
+    background: white;
+    color: black;
+    padding: 5px 8px;
+    border-radius: 50%;
+    margin: 0 5px;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.movies-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    transition: 0.5s all ease-in;
+}
+
+.story-div {
+    background: #6b6b6b;
+    width: 160px;
+    height: 240px;
+    margin: 15px 10px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    border: 1px solid black;
+    /*transform: rotateZ(45deg);*/
+
+}
+
+.story-div img {
+    height: 140px;
+
+    /*transform: rotateZ(-45deg);*/
+}
+
+.header{
+    width: 100%;
+    background: white;
+    justify-content: center;
+}
+.header h3{
+    text-align: center;
+}
+
+.book-btn {
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: white;
+    background: black;
+}
+
+.view-btn {
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: white;
+    background: black;
+}

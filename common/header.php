@@ -1,11 +1,11 @@
 <div class="containerHeader">
-    <dev class=" search">
+    <div class=" search">
         <input id="searchBar" class="searchbar" type="text" placeholder="Search in...">
         <a id="btnSearch" class="btn-search"><i class="fa fa-search" aria-hidden="true"></i></a>
-    </dev>
+    </div>
 
     <div class="sear">
-        <img src="./image/logo2.png" alt="">
+        <img src="../image/logo2.png" alt="">
     </div>
 
     <div class="part headericon">

@@ -1,0 +1,123 @@
+.movie-container{
+    width: 60%;
+    height: 75vh;
+    margin: 20px auto;
+    display: flex;
+    background: white;
+    padding: 15px;
+    border-radius: 2px;
+}
+
+.image-area{
+    width: 35%;
+    overflow: hidden;
+    border: 5px solid rgba(227, 227, 38, 0.71);
+}
+.image-area img{
+    width: 100%;
+    height: 100%;
+    image-resolution: normal;
+    object-fit: fill;
+}
+.detail-area{
+    width: 60%;
+    margin: 15px 25px;
+}
+
+.detail-area h5{
+    padding: 1px 0;
+}
+.fa-clock-o{
+    color: red;
+    width: fit-content;
+}
+
+.btn{
+    position: relative;
+    float: right;
+    padding: 12px 25px;
+    background: #FFD564;
+    font-weight: bold;
+    color: rgba(56, 55, 55, 0.86);
+    border-radius: 3px;
+    border: 1px #FFD564 solid;
+}
+
+.btn:hover{
+    background: rgba(255, 213, 100, 0.82);
+}
+
+.tags {
+    list-style: none;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+}
+
+.tags li {
+    float: left;
+}
+
+.tag {
+    background: #eee;
+    border-radius: 3px 0 0 3px;
+    color: #1f1e1e;
+    display: inline-block;
+    height: 26px;
+    line-height: 26px;
+    padding: 0 20px 0 23px;
+    position: relative;
+    margin: 0 10px 10px 0;
+    text-decoration: none;
+    -webkit-transition: color 0.2s;
+}
+
+.tag::before {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: inset 0 1px rgba(0, 0, 0, 0.25);
+    content: '';
+    height: 6px;
+    left: 10px;
+    position: absolute;
+    width: 6px;
+    top: 10px;
+}
+
+.tag::after {
+    background: #fff;
+    border-bottom: 13px solid transparent;
+    border-left: 10px solid #eee;
+    border-top: 13px solid transparent;
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.tag:hover {
+    background-color:#FFD564;
+    color: rgba(56, 55, 55, 0.86);
+}
+
+.tag:hover::after {
+    border-left-color: #FFD564;
+}
+
+.watch-trailer-btn{
+    background-color: #101010;
+    color: white;
+    position: absolute;
+    margin: 5px auto;
+    box-sizing: border-box;
+    border-color: black;
+    padding: 10px 20px;
+}
+
+.watch-trailer-btn:hover{
+    border-color: #FFD564;
+    background: #FFD564;
+    font-weight: bold;
+    color: rgba(56, 55, 55, 0.86);
+    border-radius: 3px;
+}

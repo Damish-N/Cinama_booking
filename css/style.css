@@ -66,6 +66,10 @@
     padding: 0 5px;
     position: relative;
   }
+
+  .schedule{
+      width: 120%;
+  }
   
   .input-field i {
     text-align: center;

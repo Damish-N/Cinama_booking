@@ -1,6 +1,6 @@
 .movie-container{
-    width: 60%;
-    height: 75vh;
+    width: 65%;
+    height: 70vh;
     margin: 20px auto;
     display: flex;
     background: white;
@@ -20,19 +20,22 @@
     object-fit: fill;
 }
 .detail-area{
-    width: 60%;
+    width: 65%;
     margin: 15px 25px;
 }
 
 .detail-area h5{
-    padding: 1px 0;
+    padding: 8px 0;
+
 }
 .fa-clock-o{
+    padding-bottom: 10px;
     color: red;
     width: fit-content;
 }
 
 .btn{
+    width: fit-content;
     position: relative;
     float: right;
     padding: 12px 25px;

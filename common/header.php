@@ -1,3 +1,4 @@
+<<<<<<< HEAD
     <div class="containerHeader">
         <dev class=" search">
             <input id="searchBar" class="searchbar" type="text" placeholder="Search in...">
@@ -7,6 +8,17 @@
         <div class="sear">
             <img src="./image/logo2.png" alt="">
         </div>
+=======
+<div class="containerHeader">
+    <div class=" search">
+        <input id="searchBar" class="searchbar" type="text" placeholder="Search in...">
+        <a id="btnSearch" class="btn-search"><i class="fa fa-search" aria-hidden="true"></i></a>
+    </div>
+
+    <div class="sear">
+        <img src="../image/logo2.png" alt="">
+    </div>
+>>>>>>> 65b1b4b342f7dbcd62be45958909549e2262e740
 
         <div class="part headericon">
             <i class="fa fa-user-circle" aria-hidden="true"></i>

@@ -20,7 +20,7 @@
             <div class="surfCard02">
                 <p class="surfCardContent">Movie Name</p>
                 <div class="read-more">
-                    <a class="btn" href="">FIND OUT MORE <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                    <a class="btn" href="../../cinama/views/movieDetial.php">FIND OUT MORE <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                 </div>
             </div>
         </div>

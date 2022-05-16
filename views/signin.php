@@ -12,12 +12,8 @@ $errors = array();
 <!--    <link rel="icon" type="image/png" href="--><?php //echo BURL.'assets/img/basic/favicon.png'; ?><!--" />-->
     <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/style.css">
-<<<<<<< HEAD
-    <script type="text/javascript" src="<?php echo BURL.'assets/js/validateLogin.js'; ?>"></script>
-=======
-    <link rel="stylesheet" href="../css/login.css">
 <!--    <script type="text/javascript" src="--><?php //echo BURL.'assets/js/validateLogin.js'; ?><!--"></script>-->
->>>>>>> 65b1b4b342f7dbcd62be45958909549e2262e740
+    <link rel="stylesheet" href="../css/login.css">
     <title></title>
 </head>
 

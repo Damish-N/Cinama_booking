@@ -1,39 +1,56 @@
-    <div class="surfCardWrapper">
-
-        <div class="surfCard">
+<div class="surfCardWrapper">
+    <?php
+    for ($i = 0; $i < 3; $i++) {
+       echo ' <div class="surfCard">
             <div class="surfCard01">
-                <img src="./image/T1.webp" alt="">
+                <img src='.$retrieve_data_imdm_movies[$i]['url'].' alt="">
             </div>
             <div class="surfCard02">
-                <p class="surfCardContent">Movie Name</p>
+                <p class="surfCardContent">'.$retrieve_data_imdm_movies[$i]['name']. '</p>
 
                 <div class="read-more">
                     <a class="btn" href="">FIND OUT MORE <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                 </div>
             </div>
-        </div>
+        </div>;';
+    }
+    ?>
 
-        <div class="surfCard">
-            <div class="surfCard02">
-                <img src="./image/T2.jpg" alt="">
-            </div>
-            <div class="surfCard02">
-                <p class="surfCardContent">Movie Name</p>
-                <div class="read-more">
-                    <a class="btn" href="../../cinama/views/movieDetial.php">FIND OUT MORE <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
-                </div>
-            </div>
-        </div>
-
-        <div class="surfCard">
-            <div class="surfCard01">
-                <img src="./image/T3.jpg" alt="">
-            </div>
-            <div class="surfCard01">
-                <p class="surfCardContent">Movie Name</p>
-                <div class="read-more">
-                    <a class="btn" href=@">FIND OUT MORE <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
+<!--    <div class="surfCard">-->
+<!--        <div class="surfCard01">-->
+<!--            <img src=--><?php //echo $retrieve_data_imdm_movies[0]['url'] ?><!-- alt="">-->
+<!--        </div>-->
+<!--        <div class="surfCard02">-->
+<!--            <p class="surfCardContent">--><?php //echo $retrieve_data_imdm_movies[0]['name'] ?><!--</p>-->
+<!---->
+<!--            <div class="read-more">-->
+<!--                <a class="btn" href="">FIND OUT MORE <i class="fa fa-chevron-right" aria-hidden="true"></i></a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!---->
+<!--    <div class="surfCard">-->
+<!--        <div class="surfCard02">-->
+<!--            <img src=--><?php //echo $retrieve_data_imdm_movies[1]['url'] ?><!-- alt="">-->
+<!--        </div>-->
+<!--        <div class="surfCard02">-->
+<!--            <p class="surfCardContent">--><?php //echo $retrieve_data_imdm_movies[1]['name'] ?><!--</p>-->
+<!--            <div class="read-more">-->
+<!--                <a class="btn" href="../../cinama/views/movieDetial.php">FIND OUT MORE <i class="fa fa-chevron-right"-->
+<!--                                                                                          aria-hidden="true"></i></a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!---->
+<!--    <div class="surfCard">-->
+<!--        <div class="surfCard01">-->
+<!--            <img src=--><?php //echo $retrieve_data_imdm_movies[2]['url'] ?><!-- alt="">-->
+<!--        </div>-->
+<!--        <div class="surfCard01">-->
+<!--            <p class="surfCardContent">--><?php //echo $retrieve_data_imdm_movies[2]['name'] ?><!--</p>-->
+<!--            <div class="read-more">-->
+<!--                <a class="btn" href=@">FIND OUT MORE <i class="fa fa-chevron-right" aria-hidden="true"></i></a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+</div>

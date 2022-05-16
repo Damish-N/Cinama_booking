@@ -26,7 +26,7 @@
                     </ul>
                 </li>
                 <li><a href="">About us</a></li>
-                <li><a href="./views/signin.php">Log Out</a></li>
+                <li><a href="./views/signin.php">Log in</a></li>
 
             </ul>
         </div>

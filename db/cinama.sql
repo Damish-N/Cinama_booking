@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: May 12, 2022 at 09:53 PM
--- Server version: 10.4.20-MariaDB
--- PHP Version: 8.0.8
+-- Host: 127.0.0.1
+-- Generation Time: May 16, 2022 at 10:46 AM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 7.3.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -52,6 +52,16 @@ CREATE TABLE `customer` (
   `city` varchar(30) NOT NULL,
   `contact_no` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `customer`
+--
+
+INSERT INTO `customer` (`customer_id`, `user_name`, `password`, `first_name`, `last_name`, `email`, `city`, `contact_no`) VALUES
+(1, '2018cs132', '$2y$10$5YvJeuRnFcb5LBkjHY/PyePBfR2ty4ysN1/zzSmt3at8UiGrQQ9fy', 'Fresh ', 'World', 'ravinduranaweera@gmail.co', 'Pannipitiya', 3262457),
+(2, '2018cs132', '$2y$10$ZLv6IiGTZdBLhcnMQHInSuuaAY46p4sMHf11m5VPAxtF6LjElkkTq', 'Fresh ', 'World', 'ravinduranaweera@gmail.co', 'Pannipitiya', 3262457),
+(3, '2018cs132', '$2y$10$T5I4u3h1O5dy2RChe2UsLe0SZGb.wei/8kbR.pu4OnHERz/SjIqxG', 'Fresh ', 'World', 'ravinduranaweera@gmail.co', 'Pannipitiya', 3262457),
+(4, '', '$2y$10$LTbcHKLn8Dv/e.4/GfPu2efpbIG6ddsA0YOETCL5CiwXXsdimg8ja', '', '', 'salesfreshworldexporters@', '', 0);
 
 -- --------------------------------------------------------
 
@@ -187,18 +197,26 @@ CREATE TABLE `shedule` (
 --
 
 CREATE TABLE `theater_owner` (
-  `manager_id` int(50) NOT NULL,
-  `user_name` varchar(50) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `first_name` varchar(50) NOT NULL,
-  `last_name` varchar(50) NOT NULL,
+  `theater_id` int(50) NOT NULL,
+  `theater_name` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `city` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `location` text NOT NULL,
   `contact_no` int(10) NOT NULL,
   `no_balcony_seats` int(5) NOT NULL,
   `no_odc_seats` int(5) NOT NULL,
-  `no_of_box` int(5) NOT NULL
+  `no_of_box` int(5) NOT NULL,
+  `open_time` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `theater_owner`
+--
+
+INSERT INTO `theater_owner` (`theater_id`, `theater_name`, `email`, `password`, `location`, `contact_no`, `no_balcony_seats`, `no_odc_seats`, `no_of_box`, `open_time`) VALUES
+(1, 'xd', 'salesfreshworldexporters@gmail.com', '$2y$10$RNVS9IyQ/XwicMClEnyQKuBIcgwMPLat.QFn4Gy4AN1feaZySiJeu', 'vfasd', 6666, 3, 35, 34, '0000-00-00 00:00:00'),
+(2, 'xd', 'salesfreshworldexporters@gmail.com', '$2y$10$COl679PUbdbJOCRyhn0XmOt.JRD.VAcYTopJxXE5p6HuleRcjpT1.', 'vfasd', 6666, 3, 35, 34, '0000-00-00 00:00:00'),
+(3, 'xd', 'salesfreshworldexporters@gmail.com', '$2y$10$MfSXOuz79iBl4Eo3tmjZ9eSAXETHhFcVlQiecgeSf6TronNDBWa7G', 'vfasd', 6666, 3, 35, 34, '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -266,7 +284,7 @@ ALTER TABLE `shedule`
 -- Indexes for table `theater_owner`
 --
 ALTER TABLE `theater_owner`
-  ADD PRIMARY KEY (`manager_id`);
+  ADD PRIMARY KEY (`theater_id`);
 
 --
 -- Indexes for table `ticket`
@@ -286,7 +304,7 @@ ALTER TABLE `ticket`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `day_ schedule`
@@ -322,7 +340,7 @@ ALTER TABLE `shedule`
 -- AUTO_INCREMENT for table `theater_owner`
 --
 ALTER TABLE `theater_owner`
-  MODIFY `manager_id` int(50) NOT NULL AUTO_INCREMENT;
+  MODIFY `theater_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `ticket`
@@ -339,7 +357,7 @@ ALTER TABLE `ticket`
 --
 ALTER TABLE `movie_theater`
   ADD CONSTRAINT `fk_movie_mton` FOREIGN KEY (`movie_id`) REFERENCES `movie` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_theater_mton` FOREIGN KEY (`theater_id`) REFERENCES `theater_owner` (`manager_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_theater_mton` FOREIGN KEY (`theater_id`) REFERENCES `theater_owner` (`theater_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `shedule`
@@ -354,7 +372,7 @@ ALTER TABLE `ticket`
   ADD CONSTRAINT `fk_customer` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_movie_ticket` FOREIGN KEY (`movie_id`) REFERENCES `movie` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_payment` FOREIGN KEY (`payment_id`) REFERENCES `payment` (`payment_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_theater` FOREIGN KEY (`theater_owner`) REFERENCES `theater_owner` (`manager_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_theater` FOREIGN KEY (`theater_owner`) REFERENCES `theater_owner` (`theater_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

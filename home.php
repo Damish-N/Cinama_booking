@@ -1,3 +1,4 @@
+<?php require_once ('./controllers/homeController.php')?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,17 +21,25 @@
 <body>
     <?php include './common/hero.php' ?>
 
+
     <h2 style="color: #fff; text-align: center; margin: 30px;">Latest Movies</h2>
 
-    <?php include './common/movies.php' ?>
+    <?php
+    $retrieve_data_post = $array_of_recent_post;
+    include './common/movies.php';
+    ?>
 
     <h2 style="color: #fff; text-align: center; margin: 30px;">Top IMBD Movies</h2>
 
-    <?php include './common/movieCard.php' ?>
+    <?php
+    $retrieve_data_imdm_movies = $array_of_imbm_movies;
+    include './common/movieCard.php' ?>
 
     <h2 style="color: #fff; text-align: center; margin: 30px;">Movies Trailers</h2>
 
-    <?php include './common/movies.php' ?>
+    <?php
+    $retrieve_data_post = $array_of_recent_post;
+    include './common/movies.php' ?>
     
     <?php include './common/footer.php' ?>
 </body>

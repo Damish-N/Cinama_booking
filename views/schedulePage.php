@@ -1,7 +1,8 @@
 <?php
     $data_movie = $_POST['movieName'];
+    $data_date = $_POST['date'];
 
-//    echo $data;
+//    echo $data_movie;
 ?>
     <!doctype html>
     <html lang="en">

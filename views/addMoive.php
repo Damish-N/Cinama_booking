@@ -1,5 +1,3 @@
-<?php  ?>
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -30,14 +28,26 @@
             <div class="basic-detail">
                 <div class="input-field">
                     <i class="fa fa-film" aria-hidden="true"></i>
-                    <input type="text" name="movieName" placeholder="Movie Name"/>
+                    <select required class="select-movie" name="movieName" id="cars">
+                        <?php
+                            require_once ('../controllers/addMovieController.php');
+                            $options = getAllMovies();
+                            for ($i=0;$i<count($options);$i++){
+                                echo '<option value='.$options[$i]['movie_id'].'>'.$options[$i]['name'].'</option>';
+                            }
+                        ?>
+                    </select>
                 </div>
                 <div class="input-field">
                     <i class="fa fa-rss" aria-hidden="true"></i>
-                    <input type="date" name="year" placeholder="Date publish"/>
+                    <input required type="date" name="date" placeholder="Date publish"/>
+                </div>
+                <div class="input-field">
+                    <i class="fa fa-rss" aria-hidden="true"></i>
+                    <input required type="number" name="noOfDates" placeholder="No of Dates"/>
                 </div>
             </div>
-            <input type="submit" name="signup-btn" class="btn" value="Next"/>
+            <input type="submit" name="signup-btn-on" class="btn" value="Next"/>
         </form>
     </div>
 </div>

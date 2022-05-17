@@ -24,13 +24,27 @@
 }
 .schedule-details{
     /*display: flex;*/
-    /*overflow: auto;*/
     width: 320px;
     margin: 10px auto;
     /*width: 20%;*/
     /*justify-items: flex-start;*/
     /*top: 25px;*/
     /*position: relative;*/
+}
+.input-field{
+    width: 450px;
+}
+.select-movie{
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    margin: auto 5px;
+    background: transparent;
+    line-height: 1;
+    font-weight: 500;
+    font-size: 17px;
+    color: #333;
+    /*width: 45px;*/
 }
 
 .day-select{

@@ -28,7 +28,7 @@
             <div class="basic-detail">
                 <div class="input-field">
                     <i class="fa fa-film" aria-hidden="true"></i>
-                    <select class="select-movie" name="movieName" id="cars">
+                    <select required class="select-movie" name="movieName" id="cars">
                         <?php
                             require_once ('../controllers/addMovieController.php');
                             $options = getAllMovies();
@@ -40,10 +40,14 @@
                 </div>
                 <div class="input-field">
                     <i class="fa fa-rss" aria-hidden="true"></i>
-                    <input type="date" name="date" placeholder="Date publish"/>
+                    <input required type="date" name="date" placeholder="Date publish"/>
+                </div>
+                <div class="input-field">
+                    <i class="fa fa-rss" aria-hidden="true"></i>
+                    <input required type="number" name="noOfDates" placeholder="No of Dates"/>
                 </div>
             </div>
-            <input type="submit" name="signup-btn" class="btn" value="Next"/>
+            <input type="submit" name="signup-btn-on" class="btn" value="Next"/>
         </form>
     </div>
 </div>

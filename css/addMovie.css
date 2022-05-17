@@ -14,26 +14,28 @@
     width: 80%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.47);
-
 }
 .sign-in-form{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+
 }
 
 .input-field .dates{
     width: 150px;
 }
 .schedule-details{
+    /*display: flex;*/
+    /*overflow: auto;*/
+    width: 320px;
+    margin: 10px auto;
+    /*width: 20%;*/
     /*justify-items: flex-start;*/
     /*top: 25px;*/
-    position: relative;
+    /*position: relative;*/
 }
 
 .day-select{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 .time-slots{

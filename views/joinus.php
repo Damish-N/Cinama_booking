@@ -26,7 +26,7 @@
                 <p>Are you Movie Lover</p>
             </div>
             <div class="joinbtn">
-                <a href="./signupcustomer.php" class="btn2">Sign Up</a>
+                <a href="./signupCustomer.php" class="btn2">Sign Up</a>
             </div>
         </div>
     </div>

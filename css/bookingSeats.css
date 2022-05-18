@@ -1,0 +1,32 @@
+
+.seats-booking{
+    display: flex;
+    justify-content: space-between;
+}
+.header-input{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.header-input i{
+    margin-right:15px ;
+}
+.schedule{
+    height: 120px;
+    width: 180px;
+    margin: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.schedule input{
+    text-align: center;
+    width: 120px;
+}
+
+.schedule button{
+    padding: 10px;
+}

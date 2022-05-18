@@ -1,4 +1,10 @@
+<?php
+include '../controllers/theatersController.php';
+$type = $_GET['movie_type'];
 
+$movies = getAllTheMoviesTypeVice($type);
+
+?>
 
 <!doctype html>
 <html lang="en">
@@ -10,7 +16,6 @@
     <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-
 
 
     <link rel="stylesheet" href="../css/movie.css">
@@ -28,8 +33,9 @@
 <!--<i class="fa-solid fa-angle-right"></i>-->
 <div class="category-div">
     <h2>
-        English Movies
+        <?php echo $type ?> Movies
     </h2>
+
     <div class="container">
         <div class="horizontal-scroll">
             <button class="btn-scroll" id="btn-scroll-left" onclick="scrollHorizontal(1)"><i
@@ -38,68 +44,31 @@
             <button class="btn-scroll" id="btn-scroll-right" onclick="scrollHorizontal(-1)"><i
                         class="fas fa-angle-right"></i></i></button>
 
-            <div class="movies-container">
 
-                <div class="story-div">
+            <div class="movies-container">
+                <?php
+                if (sizeof($movies) == 0) {
+                    echo 'no movies ';
+                } else {
+                    for ($i = 0; $i < sizeof($movies); $i++) {
+                        echo '
+                         <div class="story-div">
                     <div class="header">
-                        <h3>Cinema-1</h3>
+                        <h3>' . $movies[$i]['name'] . '</h3>
                     </div>
-                    <img src="../image/cinama_1.jpg" alt="">
+                    <img src=' . $movies[$i]['url'] . ' alt="">
                     <div class="bottom-bar">
-                        <button class="view-btn">More</button>
-                        <button class="book-btn">Book</button>
+                        <button class="view-btn">
+                        <a style="text-decoration: none;color: white" href="./movieDetial.php?movie_id=' . $movies[$i]['movie_id'] . '">
+                            More Datail
+                        </a>
+                        </button>
                     </div>
                 </div>
-                <div class="story-div">
-                    <div class="header">
-                        <h3>Cinema-1</h3>
-                    </div>
-                    <img src="../image/movie_1.jpg" alt="">
-                    <div class="bottom-bar">
-                        <button class="view-btn">More</button>
-                        <button class="book-btn">Book</button>
-                    </div>
-                </div>
-                <div class="story-div">
-                    <div class="header">
-                        <h3>Cinema-1</h3>
-                    </div>
-                    <img src="../image/movie_2.jpeg" alt="">
-                    <div class="bottom-bar">
-                        <button class="view-btn">More</button>
-                        <button class="book-btn">Book</button>
-                    </div>
-                </div>
-                <div class="story-div">
-                    <div class="header">
-                        <h3>Cinema-1</h3>
-                    </div>
-                    <img src="../image/movie_3.jpg" alt="">
-                    <div class="bottom-bar">
-                        <button class="view-btn">More</button>
-                        <button class="book-btn">Book</button>
-                    </div>
-                </div>
-                <div class="story-div">
-                    <div class="header">
-                        <h3>Cinema-1</h3>
-                    </div>
-                    <img src="../image/cinama_1.jpg" alt="">
-                    <div class="bottom-bar">
-                        <button class="view-btn">button-1</button>
-                        <button class="book-btn">button-2</button>
-                    </div>
-                </div>
-                <div class="story-div">
-                    <div class="header">
-                        <h3>Cinema-1</h3>
-                    </div>
-                    <img src="../image/movie_1.jpg" alt="">
-                    <div class="bottom-bar">
-                        <button class="view-btn">More</button>
-                        <button class="book-btn">Book</button>
-                    </div>
-                </div>
+                        ';
+                    }
+                }
+                ?>
 
 
             </div>

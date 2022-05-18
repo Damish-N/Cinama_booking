@@ -59,7 +59,7 @@
             <i class="fa fa-child" aria-hidden="true"></i>
             <input class="number-input" disabled value=<?php echo "5-BOXES" ?>  type="text"
                    placeholder="Time of Watch"/>
-            <input min="0" max="15 type="number" name="noOfDates" placeholder="No of ODC"/>
+            <input min="0" max="15" type="number" name="noOfDates" placeholder="No of ODC"/>
         </div>
     </div>
     <input type="submit" name="signup-btn-on" class="btn" value="Reserve Ticket"/>

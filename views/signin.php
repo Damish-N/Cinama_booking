@@ -1,5 +1,5 @@
 <?php 
-require_once('../controllers/signup.php');
+require_once('../controllers/signin.php');
 $errors = array(); 
 ?>
 

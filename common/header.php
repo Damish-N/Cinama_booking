@@ -17,7 +17,7 @@
         <div id="nav">
             <ul>
                 <li><a href="../index.php">Home</a></li>
-                <li><a href="servicepage.php">Theaters</a></li>
+                <li><a href="./views/theaterList.php">Theaters</a></li>
                 <li><a href="">Category</a>
                     <ul class="dropdown">
                         <li><a href="catogery\cat1.php">English Movies  &nbsp; </a></li>

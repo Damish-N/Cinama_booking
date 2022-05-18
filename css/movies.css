@@ -97,7 +97,7 @@ body {
 }
 
 .header h3 {
-    position: absolute;
+    /*position: absolute;*/
     font-family: 'Open Sans', sans-serif;
     z-index: 25;
     font-size: 14px;
@@ -125,11 +125,11 @@ body {
 }
 
 .view-btn {
-    padding: 15px 12px;
+    padding: 5px 5px;
     border-radius: 5px;
     color: white;
+    width: 100px;
     background: rgba(0, 0, 0, 0.63);
     margin-right: 5px;
     font-weight: bolder;
-    width: 100px;
 }

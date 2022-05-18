@@ -20,9 +20,9 @@
                 <li><a href="./views/theaterList.php">Theaters</a></li>
                 <li><a href="">Category</a>
                     <ul class="dropdown">
-                        <li><a href="./views/movies.php">English Movies  &nbsp; </a></li>
-                        <li><a href="catogery\cat2.php">Tamil Movies  &nbsp; </a></li>
-                        <li><a href="catogery\cat3.php">Sinhala Movies  &nbsp; </a></li>
+                        <li><a href="./views/movies.php?movie_type=English">English Movies  &nbsp; </a></li>
+                        <li><a href="./views/movies.php?movie_type=Tamil">Tamil Movies  &nbsp; </a></li>
+                        <li><a href="./views/movies.php?movie_type=Sinhala">Sinhala Movies  &nbsp; </a></li>
                     </ul>
                 </li>
                 <li><a href="">About us</a></li>

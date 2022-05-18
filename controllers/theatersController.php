@@ -32,6 +32,10 @@ FROM ticket WHERE show_date='$date' AND movie_id = '$movie_id' AND theater_owner
     return executeQuery($query);
 }
 
+function getAllTheMoviesTypeVice($type){
+    $query ="SELECT * FROM movie WHERE language = '$type' AND on_screening=1;";
+    return executeQuery($query);
+}
 
 
 

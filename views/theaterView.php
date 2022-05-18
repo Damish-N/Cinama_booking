@@ -1,3 +1,11 @@
+<?php
+    $id = $_GET['theater_id'];
+    include "../controllers/theatersController.php";
+
+    $theater =getTheTheater($id);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,11 +17,15 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
         <link rel="stylesheet" href="../css/header.css">
-    <title>Document</title>
+    <title>Theaters Page</title>
 </head>
 
 <body>
-    <?php include '../common/header.php' ?>
+    <?php
+    include '../common/header.php' ;
+    ?>
+
+
     <div class="col-md-12 mt-4 text-white">
 
         <div class="inner_page">
@@ -28,7 +40,7 @@
                     <div class="theater_inner_wrp">
                         <div class="row">
                             <div class="col-sm-8">
-                                <h3>Savoy Metro Maharagama - Maharagama</h3>
+                                <h3> <?php echo $theater[0]['theater_name']?>  - <?php echo $theater[0]['location']?></h3>
                             </div>
                             <div class="col-sm-8">
                                 <div class="theater_slider">
@@ -36,7 +48,7 @@
 "
                                         class="img-responsive" alt="EAP Theater" style="width: 100%;">
                                     <p></p>
-                                    <p>Savoy Metro - Maharagama</p>
+                                    <p><?php echo $theater[0]['theater_name']?>  - <?php echo $theater[0]['location']?></p>
                                     <p></p>
                                 </div>
                             </div>
@@ -48,18 +60,18 @@
                                             <tbody>
                                                 <tr>
                                                     <td width="30%">Address : </td>
-                                                    <td width="70%">No. 38, Dehiwala Road, Maharagama.</td>
+                                                    <td width="70%"><?php echo $theater[0]['location']?></td>
                                                 </tr>
                                                 <tr height="10"></tr>
                                                 <tr>
                                                     <td>Telephone : </td>
-                                                    <td><a href="tel:+94117021443">+94117021443</a> </td>
+                                                    <td><a href="tel:+94117021443"><?php echo $theater[0]['contact_no']?></a> </td>
                                                 </tr>
                                                 <tr height="10"></tr>
                                                 <tr>
                                                     <td>Email :</td>
                                                     <td><a
-                                                            href="mailto:savoymaharagama@eapmovies.com">savoymaharagama@eapmovies.com</a>
+                                                            href="mailto:savoymaharagama@eapmovies.com"><?php echo $theater[0]['email']?></a>
                                                     </td>
                                                 </tr>
                                                 <tr height="20"></tr>

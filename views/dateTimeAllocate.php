@@ -1,9 +1,21 @@
 <?php
 include "../controllers/bookingController.php";
 
+
+
+$movie_id = $_GET['movie_id'];
+$theater_id = $_GET['theater_id'];
+////echo $movie_id;
+//
+$movie = getTheMovieByIdBookingPage($movie_id);
+$theater = getTheTheaterBookingPage($theater_id);
+
+
 function getArrayOfSchedule($day)
 {
-    $dayWithSchedule = getScheduleDayByDay(1, 5);
+    $movie_id = $_GET['movie_id'];
+    $theater_id = $_GET['theater_id'];
+    $dayWithSchedule = getScheduleDayByDay($theater_id, $movie_id);
 
 
     $Mon = getPatternOfArray($dayWithSchedule[0]['monday'] % 8);
@@ -64,13 +76,13 @@ function getArrayOfSchedule($day)
     <div class="cinema-detail">
         <div class="input-field">
             <i class="fa fa-film" aria-hidden="true"></i>
-            <input disabled value='<?php echo "movie_date" ?>' required type="text" name="movie_name"
+            <input disabled value='<?php echo $theater[0]['theater_name']."- Cinma" ?>' required type="text" name="movie_name"
                    placeholder="Movie"/>
         </div>
         <div class="input-field">
-            <i class="fa fa-clock-o" aria-hidden="true"></i>
-            <input disabled value=<?php echo "theater_id" ?> required type="text" name="theater_id"
-                   placeholder="Theater"/>
+            <i class="fa fa-film" aria-hidden="true"></i>
+            <input disabled  value='<?php echo $movie[0]['name']."- Movie" ?>'  type="text" name="theater_id"
+                   />
         </div>
     </div>
 

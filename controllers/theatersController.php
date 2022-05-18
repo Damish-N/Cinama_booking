@@ -14,6 +14,16 @@ function getTheTheater($id){
     return executeQuery($query);
 }
 
+function getTheMoviesViaTheater($id){
+    $query = "SELECT movie_id FROM movie_theater where theater_id = $id";
+    return executeQuery($query);
+}
+
+function getTheMovieById($id){
+    $query = "SELECT * FROM movie where movie_id = '$id'";
+    return executeQuery($query);
+}
+
 
 
 ?>

@@ -1,3 +1,8 @@
+<?php
+    $v = $_GET['text'];
+    echo $v;
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -19,11 +24,10 @@
 </head>
 <body>
 <?php include "../common/header.php"; ?>
-
 <form class="add-booking-area" method="post">
     <div class="input-field">
         <i class="fa fa-film" aria-hidden="true"></i>
-        <input disabled value=<?php echo "movie_date" ?> required type="text" name="movie_name" placeholder="Movie"/>
+        <input disabled value='<?php echo "movie_date" ?>' required type="text" name="movie_name" placeholder="Movie"/>
     </div>
     <div class="input-field">
         <i class="fa fa-clock-o" aria-hidden="true"></i>
@@ -31,10 +35,15 @@
     </div>
     <div class="input-field">
         <i class="fa fa-check-square-o" aria-hidden="true"></i>
-        <input disabled value=<?php echo "7.00pm-10.00pm" ?>  type="text" name="timeToWatch"
+        <input disabled value='<?php echo "7.00pm-10.00pm" ?>'  type="text" name="timeToWatch"
                placeholder="Time of Watch"/>
     </div>
 
+    <div class="input-field">
+        <i class="fa fa-clock-o" aria-hidden="true"></i>
+        <input disabled value='<?php echo "7.00pm-10.00pm" ?>' type="date"  name="date"
+               placeholder="Time of Watch"/>
+    </div>
     <div class="seats-booking">
         <div class="input-field schedule">
             <i class="fa fa-child" aria-hidden="true"></i>

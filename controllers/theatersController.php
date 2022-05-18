@@ -1,5 +1,7 @@
 <?php
-
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 include "../controllers/addMovieController.php";
 
 function getAllTheaters(){
@@ -23,6 +25,13 @@ function getTheMovieById($id){
     $query = "SELECT * FROM movie where movie_id = '$id'";
     return executeQuery($query);
 }
+
+function getAvailableSeats($date,$movie_id,$theater_id,$show_time){
+    $query = "SELECT SUM(no_balcony_seats) as no_balcony_seats ,SUM(no_odc_seats) as no_odc_seats,SUM(no_of_box) as no_of_box
+FROM ticket WHERE show_date='$date' AND movie_id = '$movie_id' AND theater_owner = '$theater_id' and show_time='$show_time';";
+    return executeQuery($query);
+}
+
 
 
 

@@ -13,18 +13,18 @@
 
 
 
-    <link rel="stylesheet" href="./css/movie.css">
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/header.css">
-    <link rel="stylesheet" href="./css/footer.css">
-    <link rel="stylesheet" href="./css/addMovie.css">
-    <link rel="stylesheet" href="./css/movies.css">
+    <link rel="stylesheet" href="../css/movie.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/addMovie.css">
+    <link rel="stylesheet" href="../css/movies.css">
 
     <title>Movies</title>
 </head>
 <body>
 
-<?php require './common/header.php'; ?>
+<?php require '../common/header.php'; ?>
 <!--<i class="fa-solid fa-angle-right"></i>-->
 <div class="category-div">
     <h2>
@@ -44,7 +44,7 @@
                     <div class="header">
                         <h3>Cinema-1</h3>
                     </div>
-                    <img src="./image/cinama_1.jpg" alt="">
+                    <img src="../image/cinama_1.jpg" alt="">
                     <div class="bottom-bar">
                         <button class="view-btn">More</button>
                         <button class="book-btn">Book</button>
@@ -54,7 +54,7 @@
                     <div class="header">
                         <h3>Cinema-1</h3>
                     </div>
-                    <img src="./image/movie_1.jpg" alt="">
+                    <img src="../image/movie_1.jpg" alt="">
                     <div class="bottom-bar">
                         <button class="view-btn">More</button>
                         <button class="book-btn">Book</button>
@@ -64,7 +64,7 @@
                     <div class="header">
                         <h3>Cinema-1</h3>
                     </div>
-                    <img src="./image/movie_2.jpeg" alt="">
+                    <img src="../image/movie_2.jpeg" alt="">
                     <div class="bottom-bar">
                         <button class="view-btn">More</button>
                         <button class="book-btn">Book</button>
@@ -74,7 +74,7 @@
                     <div class="header">
                         <h3>Cinema-1</h3>
                     </div>
-                    <img src="./image/movie_3.jpg" alt="">
+                    <img src="../image/movie_3.jpg" alt="">
                     <div class="bottom-bar">
                         <button class="view-btn">More</button>
                         <button class="book-btn">Book</button>
@@ -84,7 +84,7 @@
                     <div class="header">
                         <h3>Cinema-1</h3>
                     </div>
-                    <img src="./image/cinama_1.jpg" alt="">
+                    <img src="../image/cinama_1.jpg" alt="">
                     <div class="bottom-bar">
                         <button class="view-btn">button-1</button>
                         <button class="book-btn">button-2</button>
@@ -94,7 +94,7 @@
                     <div class="header">
                         <h3>Cinema-1</h3>
                     </div>
-                    <img src="./image/movie_1.jpg" alt="">
+                    <img src="../image/movie_1.jpg" alt="">
                     <div class="bottom-bar">
                         <button class="view-btn">More</button>
                         <button class="book-btn">Book</button>
@@ -106,11 +106,11 @@
 
         </div>
     </div>
-    <script src="./js/scroll_bar.js"></script>
+    <script src="../js/scroll_bar.js"></script>
 </div>
 
 <?php
-include './common/footer.php'
+include '../common/footer.php'
 ?>
 </body>
 </html>

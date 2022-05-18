@@ -15,6 +15,17 @@ function getScheduleDayByDay($theaterId,$movieId){
     return executeQuery($query);
 }
 
+function getTheTheaterBookingPage($id){
+    $query = "SELECT * FROM theater_owner WHERE  theater_id='$id'";
+    return executeQuery($query);
+}
+
+function getTheMovieByIdBookingPage($id){
+    $query = "SELECT * FROM movie where movie_id = '$id'";
+    return executeQuery($query);
+}
+
+
 function getPatternOfArray($pattern){
     $arr = Array();
     if($pattern==0){

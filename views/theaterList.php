@@ -6,10 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/theater.css">
-    <title>Document</title>
+    <title>Theaters</title>
 </head>
 
 <body>
+    <?php
+        include '../controllers/theatersController.php';
+           $all_theaters = getAllTheaters();
+    ?>
     <div class="slidecontainer">
         <img class="zoomImgage" src="../image/tt.jpg" alt="beach side city view">
         <div class="bottom-left">
@@ -17,94 +21,25 @@
         </div>
     </div>
     <div class="theaterCard">
-        <div class="my-card">
+        <?php
+            for ($i=0;$i<sizeof($all_theaters);$i++){
+                echo '
+                    <div class="my-card">
             <div class="card-content">
                 <div class="img-place">
                     <div id="card-img"></div>
                 </div>
                 <div class="card-text">
-                    <p>Artistic Concept</p>
-                    <a class="btn">See more</a>
+                    <p>'.$all_theaters[$i]['theater_name'].'</p>
+                    <a href="./theaterView.php?theater_id='.$all_theaters[$i]['theater_id'].'" class="btn">See more</a>
                 </div>
             </div>
         </div>
-        <div class="my-card">
-            <div class="card-content">
-                <div class="img-place">
-                    <div id="card-img"></div>
-                </div>
-                <div class="card-text">
-                    <p>Artistic Concept</p>
-                    <a class="btn">See more</a>
-                </div>
-            </div>
-        </div>
-        <div class="my-card">
-            <div class="card-content">
-                <div class="img-place">
-                    <div id="card-img"></div>
-                </div>
-                <div class="card-text">
-                    <p>Artistic Concept</p>
-                    <a class="btn">See more</a>
-                </div>
-            </div>
-        </div>
-        <div class="my-card">
-            <div class="card-content">
-                <div class="img-place">
-                    <div id="card-img"></div>
-                </div>
-                <div class="card-text">
-                    <p>Artistic Concept</p>
-                    <a class="btn">See more</a>
-                </div>
-            </div>
-        </div>
-        <div class="my-card">
-            <div class="card-content">
-                <div class="img-place">
-                    <div id="card-img"></div>
-                </div>
-                <div class="card-text">
-                    <p>Artistic Concept</p>
-                    <a class="btn">See more</a>
-                </div>
-            </div>
-        </div>
-        <div class="my-card">
-            <div class="card-content">
-                <div class="img-place">
-                    <div id="card-img"></div>
-                </div>
-                <div class="card-text">
-                    <p>Artistic Concept</p>
-                    <a class="btn">See more</a>
-                </div>
-            </div>
-        </div>
-        <div class="my-card">
-            <div class="card-content">
-                <div class="img-place">
-                    <div id="card-img"></div>
-                </div>
-                <div class="card-text">
-                    <p>Artistic Concept</p>
-                    <a class="btn">See more</a>
-                </div>
-            </div>
-        </div>
-        <div class="my-card">
-            <div class="card-content">
-                <div class="img-place">
-                    <div id="card-img"></div>
-                </div>
-                <div class="card-text">
-                    <p>Artistic Concept</p>
-                    <a class="btn">See more</a>
-                </div>
-            </div>
-        </div>
+                ';
+            }
+
+        ?>
+
     </div>
 </body>
 

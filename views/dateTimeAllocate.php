@@ -1,9 +1,21 @@
 <?php
 include "../controllers/bookingController.php";
 
+
+
+$movie_id = $_GET['movie_id'];
+$theater_id = $_GET['theater_id'];
+////echo $movie_id;
+//
+$movie = getTheMovieByIdBookingPage($movie_id);
+$theater = getTheTheaterBookingPage($theater_id);
+
+
 function getArrayOfSchedule($day)
 {
-    $dayWithSchedule = getScheduleDayByDay(1, 5);
+    $movie_id = $_GET['movie_id'];
+    $theater_id = $_GET['theater_id'];
+    $dayWithSchedule = getScheduleDayByDay($theater_id, $movie_id);
 
 
     $Mon = getPatternOfArray($dayWithSchedule[0]['monday'] % 8);
@@ -64,13 +76,13 @@ function getArrayOfSchedule($day)
     <div class="cinema-detail">
         <div class="input-field">
             <i class="fa fa-film" aria-hidden="true"></i>
-            <input disabled value='<?php echo "movie_date" ?>' required type="text" name="movie_name"
+            <input disabled value='<?php echo $theater[0]['theater_name']."- Cinma" ?>' required type="text" name="movie_name"
                    placeholder="Movie"/>
         </div>
         <div class="input-field">
-            <i class="fa fa-clock-o" aria-hidden="true"></i>
-            <input disabled value=<?php echo "theater_id" ?> required type="text" name="theater_id"
-                   placeholder="Theater"/>
+            <i class="fa fa-film" aria-hidden="true"></i>
+            <input disabled  value='<?php echo $movie[0]['name']."- Movie" ?>'  type="text" name="theater_id"
+                   />
         </div>
     </div>
 
@@ -87,9 +99,10 @@ function getArrayOfSchedule($day)
             <input disabled value="<?php echo $today ?>" type="text" placeholder=""/>
             <div class="btn-area">
 
-                <a href="https://google.com" <?php if ($daySchedule[0] == 0) { ?> style="pointer-events: none" <?php } ?>  >M</a>
-                <a href="https://google.com" <?php if ($daySchedule[1] == 0) { ?> style="pointer-events: none" <?php } ?>  >D</a>
-                <a href="https://google.com" <?php if ($daySchedule[2] == 0) { ?> style="pointer-events: none" <?php } ?>  >N</a>
+                <a <?php echo 'href="./bookingSeats.php?movie_id='.$movie_id.'&theater_id='.$theater_id.'&date='.$today.'&time=0'.'"' ?>  <?php if ($daySchedule[0] == 0) { ?> style="pointer-events: none" <?php } ?>  >M</a>
+
+                <a <?php echo 'href="./bookingSeats.php?movie_id='.$movie_id.'&theater_id='.$theater_id.'&date='.$today.'&time=1'.'"' ?>   <?php if ($daySchedule[1] == 0) { ?> style="pointer-events: none" <?php } ?>  >D</a>
+                <a <?php echo 'href="./bookingSeats.php?movie_id='.$movie_id.'&theater_id='.$theater_id.'&date='.$today.'&time=2'.'"' ?>   <?php if ($daySchedule[2] == 0) { ?> style="pointer-events: none" <?php } ?>  >N</a>
 
             </div>
         </div>
@@ -104,27 +117,9 @@ function getArrayOfSchedule($day)
             <input disabled value="<?php echo $today ?>" type="text" placeholder=""/>
             <div class="btn-area">
 
-                <a href="https://google.com" <?php if ($daySchedule[0] == 0) { ?> style="pointer-events: none" <?php } ?>  >M</a>
-                <a href="https://google.com" <?php if ($daySchedule[1] == 0) { ?> style="pointer-events: none" <?php } ?>  >D</a>
-                <a href="https://google.com" <?php if ($daySchedule[2] == 0) { ?> style="pointer-events: none" <?php } ?>  >N</a>
-
-            </div>
-        </div>
-
-        <div class="input-field schedule">
-            <h4><?php
-                $today = date_create($today)->modify('1 days')->format('Y-m-d');
-                $timestamp = strtotime($today);
-                $day = date('D', $timestamp);
-                echo $day;;
-                $daySchedule=getArrayOfSchedule($day);
-                ?></h4>
-            <input disabled value="<?php echo $today ?>" type="text" placeholder=""/>
-            <div class="btn-area">
-
-                <a href="https://google.com" <?php if ($daySchedule[0] == 0) { ?> style="pointer-events: none" <?php } ?>  >M</a>
-                <a href="https://google.com" <?php if ($daySchedule[1] == 0) { ?> style="pointer-events: none" <?php } ?>  >D</a>
-                <a href="https://google.com" <?php if ($daySchedule[2] == 0) { ?> style="pointer-events: none" <?php } ?>  >N</a>
+                <a <?php echo 'href="./bookingSeats.php?movie_id='.$movie_id.'&theater_id='.$theater_id.'&date='.$today.'&time=0'.'"' ?>  <?php if ($daySchedule[0] == 0) { ?> style="pointer-events: none" <?php } ?>  >M</a>
+                <a <?php echo 'href="./bookingSeats.php?movie_id='.$movie_id.'&theater_id='.$theater_id.'&date='.$today.'&time=1'.'"' ?>  <?php if ($daySchedule[1] == 0) { ?> style="pointer-events: none" <?php } ?>  >D</a>
+                <a <?php echo 'href="./bookingSeats.php?movie_id='.$movie_id.'&theater_id='.$theater_id.'&date='.$today.'&time=2'.'"' ?>  <?php if ($daySchedule[2] == 0) { ?> style="pointer-events: none" <?php } ?>  >N</a>
 
             </div>
         </div>
@@ -140,9 +135,9 @@ function getArrayOfSchedule($day)
             <input disabled value="<?php echo $today ?>" type="text" placeholder=""/>
             <div class="btn-area">
 
-                <a href="https://google.com" <?php if ($daySchedule[0] == 0) { ?> style="pointer-events: none" <?php } ?>  >M</a>
-                <a href="https://google.com" <?php if ($daySchedule[1] == 0) { ?> style="pointer-events: none" <?php } ?>  >D</a>
-                <a href="https://google.com" <?php if ($daySchedule[2] == 0) { ?> style="pointer-events: none" <?php } ?>  >N</a>
+                <a <?php echo 'href="./bookingSeats.php?movie_id='.$movie_id.'&theater_id='.$theater_id.'&date='.$today.'&time=0'.'"' ?>  <?php if ($daySchedule[0] == 0) { ?> style="pointer-events: none" <?php } ?>  >M</a>
+                <a <?php echo 'href="./bookingSeats.php?movie_id='.$movie_id.'&theater_id='.$theater_id.'&date='.$today.'&time=1'.'"' ?>  <?php if ($daySchedule[1] == 0) { ?> style="pointer-events: none" <?php } ?>  >D</a>
+                <a <?php echo 'href="./bookingSeats.php?movie_id='.$movie_id.'&theater_id='.$theater_id.'&date='.$today.'&time=2'.'"' ?>  <?php if ($daySchedule[2] == 0) { ?> style="pointer-events: none" <?php } ?>  >N</a>
 
             </div>
         </div>
@@ -158,9 +153,9 @@ function getArrayOfSchedule($day)
             <input disabled value="<?php echo $today ?>" type="text" placeholder=""/>
             <div class="btn-area">
 
-                <a href="https://google.com" <?php if ($daySchedule[0] == 0) { ?> style="pointer-events: none" <?php } ?>  >M</a>
-                <a href="https://google.com" <?php if ($daySchedule[1] == 0) { ?> style="pointer-events: none" <?php } ?>  >D</a>
-                <a href="https://google.com" <?php if ($daySchedule[2] == 0) { ?> style="pointer-events: none" <?php } ?>  >N</a>
+                <a <?php echo 'href="./bookingSeats.php?movie_id='.$movie_id.'&theater_id='.$theater_id.'&date='.$today.'&time=0'.'"' ?>  <?php if ($daySchedule[0] == 0) { ?> style="pointer-events: none" <?php } ?>  >M</a>
+                <a <?php echo 'href="./bookingSeats.php?movie_id='.$movie_id.'&theater_id='.$theater_id.'&date='.$today.'&time=1'.'"' ?>  <?php if ($daySchedule[1] == 0) { ?> style="pointer-events: none" <?php } ?>  >D</a>
+                <a <?php echo 'href="./bookingSeats.php?movie_id='.$movie_id.'&theater_id='.$theater_id.'&date='.$today.'&time=2'.'"' ?>  <?php if ($daySchedule[2] == 0) { ?> style="pointer-events: none" <?php } ?>  >N</a>
 
             </div>
         </div>
@@ -176,9 +171,27 @@ function getArrayOfSchedule($day)
             <input disabled value="<?php echo $today ?>" type="text" placeholder=""/>
             <div class="btn-area">
 
-                <a href="https://google.com" <?php if ($daySchedule[0] == 0) { ?> style="pointer-events: none" <?php } ?>  >M</a>
-                <a href="https://google.com" <?php if ($daySchedule[1] == 0) { ?> style="pointer-events: none" <?php } ?>  >D</a>
-                <a href="https://google.com" <?php if ($daySchedule[2] == 0) { ?> style="pointer-events: none" <?php } ?>  >N</a>
+                <a <?php echo 'href="./bookingSeats.php?movie_id='.$movie_id.'&theater_id='.$theater_id.'&date='.$today.'&time=0'.'"' ?>  <?php if ($daySchedule[0] == 0) { ?> style="pointer-events: none" <?php } ?>  >M</a>
+                <a <?php echo 'href="./bookingSeats.php?movie_id='.$movie_id.'&theater_id='.$theater_id.'&date='.$today.'&time=1'.'"' ?>  <?php if ($daySchedule[1] == 0) { ?> style="pointer-events: none" <?php } ?>  >D</a>
+                <a <?php echo 'href="./bookingSeats.php?movie_id='.$movie_id.'&theater_id='.$theater_id.'&date='.$today.'&time=2'.'"' ?>  <?php if ($daySchedule[2] == 0) { ?> style="pointer-events: none" <?php } ?>  >N</a>
+
+            </div>
+        </div>
+
+        <div class="input-field schedule">
+            <h4><?php
+                $today = date_create($today)->modify('1 days')->format('Y-m-d');
+                $timestamp = strtotime($today);
+                $day = date('D', $timestamp);
+                echo $day;;
+                $daySchedule=getArrayOfSchedule($day);
+                ?></h4>
+            <input disabled value="<?php echo $today ?>" type="text" placeholder=""/>
+            <div class="btn-area">
+
+                <a <?php echo 'href="./bookingSeats.php?movie_id='.$movie_id.'&theater_id='.$theater_id.'&date='.$today.'&time=0'.'"' ?>  <?php if ($daySchedule[0] == 0) { ?> style="pointer-events: none" <?php } ?>  >M</a>
+                <a <?php echo 'href="./bookingSeats.php?movie_id='.$movie_id.'&theater_id='.$theater_id.'&date='.$today.'&time=1'.'"' ?>  <?php if ($daySchedule[1] == 0) { ?> style="pointer-events: none" <?php } ?>  >D</a>
+                <a <?php echo 'href="./bookingSeats.php?movie_id='.$movie_id.'&theater_id='.$theater_id.'&date='.$today.'&time=2'.'"' ?>  <?php if ($daySchedule[2] == 0) { ?> style="pointer-events: none" <?php } ?>  >N</a>
 
             </div>
         </div>
@@ -194,9 +207,9 @@ function getArrayOfSchedule($day)
             <input disabled value="<?php echo   $today?>" type="text" placeholder=""/>
             <div class="btn-area">
 
-                <a href="https://google.com" <?php if ($daySchedule[0] == 0) { ?> style="pointer-events: none" <?php } ?>  >M</a>
-                <a href="https://google.com" <?php if ($daySchedule[1] == 0) { ?> style="pointer-events: none" <?php } ?>  >D</a>
-                <a href="https://google.com" <?php if ($daySchedule[2] == 0) { ?> style="pointer-events: none" <?php } ?>  >N</a>
+                <a <?php echo 'href="./bookingSeats.php?movie_id='.$movie_id.'&theater_id='.$theater_id.'&date='.$today.'&time=0'.'"' ?>  <?php if ($daySchedule[0] == 0) { ?> style="pointer-events: none" <?php } ?>  >M</a>
+                <a <?php echo 'href="./bookingSeats.php?movie_id='.$movie_id.'&theater_id='.$theater_id.'&date='.$today.'&time=1'.'"' ?>  <?php if ($daySchedule[1] == 0) { ?> style="pointer-events: none" <?php } ?>  >D</a>
+                <a <?php echo 'href="./bookingSeats.php?movie_id='.$movie_id.'&theater_id='.$theater_id.'&date='.$today.'&time=2'.'"' ?>  <?php if ($daySchedule[2] == 0) { ?> style="pointer-events: none" <?php } ?>  >N</a>
 
             </div>
         </div>

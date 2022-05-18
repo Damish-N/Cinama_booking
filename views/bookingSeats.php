@@ -1,6 +1,18 @@
 <?php
-    $v = $_GET['text'];
-    echo $v;
+
+include '../controllers/theatersController.php';
+
+
+$movie_id = $_GET['movie_id'];
+$theater_id = $_GET['theater_id'];
+$date = $_GET['date'];
+$timeSlot = $_GET['time'];
+
+$movie = getTheMovieById($movie_id);
+$theater = getTheTheater($theater_id);
+
+$seats=getAvailableSeats($date,$movie_id,$theater_id,$timeSlot);
+
 ?>
 
 <!doctype html>
@@ -24,42 +36,44 @@
 </head>
 <body>
 <?php include "../common/header.php"; ?>
-<form class="add-booking-area" method="post">
+<form <?php echo 'action="./test.php?movie_id='.$movie_id.'&theater_id='.$theater_id.'&date='.$date.'&time='.$timeSlot.'"'?> class="add-booking-area" method="post">
     <div class="input-field">
         <i class="fa fa-film" aria-hidden="true"></i>
-        <input disabled value='<?php echo "movie_date" ?>' required type="text" name="movie_name" placeholder="Movie"/>
+        <input disabled value='<?php echo $movie[0]['name'].' Movie' ?>' required type="text" name="movie_name" placeholder="Movie"/>
     </div>
     <div class="input-field">
         <i class="fa fa-clock-o" aria-hidden="true"></i>
-        <input disabled value=<?php echo "theater_id" ?> required type="text" name="theater_id" placeholder="Theater"/>
+        <input disabled value=<?php echo $theater[0]['theater_name'].' Theater ' ?> required type="text" name="theater_id" placeholder="Theater"/>
     </div>
     <div class="input-field">
         <i class="fa fa-check-square-o" aria-hidden="true"></i>
-        <input disabled value='<?php echo "7.00pm-10.00pm" ?>'  type="text" name="timeToWatch"
+        <input disabled value='<?php if ($date==0) {echo "9.00am-12.00am";}elseif ($date==1){echo "2.00pm-5.00pm";}
+            else{ echo "7.00pm-10.00pm";}
+        ?>' type="text" name="timeToWatch"
                placeholder="Time of Watch"/>
     </div>
 
     <div class="input-field">
         <i class="fa fa-clock-o" aria-hidden="true"></i>
-        <input disabled value='<?php echo "7.00pm-10.00pm" ?>' type="date"  name="date"
+        <input disabled value='<?php echo $date ?>' type="date" name="date"
                placeholder="Time of Watch"/>
     </div>
     <div class="seats-booking">
         <div class="input-field schedule">
-            <i class="fa fa-child" aria-hidden="true"></i>
-            <input  disabled value=<?php echo "15-ODC" ?>  type="text" placeholder=""/>
-            <input  min="0" max="15" type="number" name="noOfDates" placeholder="No of ODC"/>
+            <h3 style="text-align: center">No Bal. Seats available</h3>
+            <input disabled value=<?php echo ( $theater[0]['no_balcony_seats']-$seats[0]['no_balcony_seats']) ?>  type="text" placeholder=""/>
+            <input min="0" max=<?php echo( $theater[0]['no_balcony_seats']-$seats[0]['no_balcony_seats']) ?> type="number" name="noOfBal" placeholder="No of Bal"/>
         </div>
         <div class="input-field schedule">
-            <i class="fa fa-child" aria-hidden="true"></i>
-            <input disabled value=<?php echo "15-BALCONY-SEATS" ?>  type="text" placeholder="Time of Watch"/>
-            <input required min="0" max="15" type="number" name="noOfDates" placeholder="No of ODC"/>
+            <h3 style="text-align: center">No ODC. Seats available</h3>
+            <input disabled value=<?php echo ( $theater[0]['no_odc_seats']-$seats[0]['no_odc_seats']) ?>  type="text" placeholder="Time of Watch"/>
+            <input required min="0" max=<?php echo ( $theater[0]['no_odc_seats']-$seats[0]['no_odc_seats']) ?>  type="number" name="noOfOdc" placeholder="No of ODC"/>
         </div>
         <div class="input-field schedule">
-            <i class="fa fa-child" aria-hidden="true"></i>
-            <input class="number-input" disabled value=<?php echo "5-BOXES" ?>  type="text"
+            <h3 style="text-align: center">No BOXES available</h3>
+            <input class="number-input" disabled value=<?php echo ( $theater[0]['no_of_box']-$seats[0]['no_of_box']) ?>   type="text"
                    placeholder="Time of Watch"/>
-            <input min="0" max="15 type="number" name="noOfDates" placeholder="No of ODC"/>
+            <input min="0" max=<?php echo ( $theater[0]['no_of_box']-$seats[0]['no_of_box']) ?>  type="number" name="noOfBox" placeholder="No of Box"/>
         </div>
     </div>
     <input type="submit" name="signup-btn-on" class="btn" value="Reserve Ticket"/>

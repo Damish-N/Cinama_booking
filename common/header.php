@@ -16,11 +16,11 @@
     <header>
         <div id="nav">
             <ul>
-                <li><a href="../index.php">Home</a></li>
+                <li><a href="../../cinama/home.php">Home</a></li>
                 <li><a href="./views/theaterList.php">Theaters</a></li>
                 <li><a href="">Category</a>
                     <ul class="dropdown">
-                        <li><a href="catogery\cat1.php">English Movies  &nbsp; </a></li>
+                        <li><a href="./views/movies.php">English Movies  &nbsp; </a></li>
                         <li><a href="catogery\cat2.php">Tamil Movies  &nbsp; </a></li>
                         <li><a href="catogery\cat3.php">Sinhala Movies  &nbsp; </a></li>
                     </ul>

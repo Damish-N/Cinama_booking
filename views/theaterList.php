@@ -24,7 +24,7 @@
                 </div>
                 <div class="card-text">
                     <p>Artistic Concept</p>
-                    <a class="btn">See more</a>
+                    <a href="./theaterView.php" class="btn">See more</a>
                 </div>
             </div>
         </div>

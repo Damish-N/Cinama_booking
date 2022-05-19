@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="dashcontainer">
         <?php include './inc/sidebar.php' ?>
         <div class="main">
            

@@ -49,5 +49,23 @@ function getAllTheatersShowCorrespondingMovie($movie_id)
     return executeQuery($query);
 }
 
+function getCustomer($email){
+    $query = "SELECT * FROM customer WHERE email = '$email'";
+    return executeQuery($query);
+}
+
+function makeTotal(mixed $temp_no_odc_seat, mixed $temp_no_bal_seat, mixed $temp_no_box)
+{
+    return ($temp_no_box*1200)+($temp_no_bal_seat*800)+($temp_no_odc_seat*500);
+}
+
+function createBooking(mixed $amount, mixed $theater_id, mixed $movie_id, mixed $date, mixed $time, mixed $odc, mixed $bal, mixed $box,$userId)
+{
+    $query ="INSERT INTO `ticket`(`no_balcony_seats`, `no_odc_seats`, `no_of_box`, `show_time`, `show_date`, `customer_id`, `movie_id`, `theater_owner`) 
+VALUES ('$bal','$odc','$box','$time','$date','$userId','$movie_id','$theater_id')" ;
+    return executeQueryWithInsert($query);
+}
+
+
 
 ?>

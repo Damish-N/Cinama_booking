@@ -1,0 +1,12 @@
+.container-payment{
+    width: 100%;
+}
+.payment{
+    display: flex;
+    margin: 10px auto;
+    align-items: center;
+}
+.payment input{
+    width: 50%;
+    text-align: center;
+}

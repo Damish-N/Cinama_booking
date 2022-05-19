@@ -29,18 +29,8 @@ body {
     height: 120%;
     transition: opacity 1s ease-in-out;
     z-index: -1;
-    animation: zoom 50s alternate;
 }
 
-@keyframes zoom {
-    from {
-        transform: scale(1, 1);
-    }
-
-    to {
-        transform: scale(1.2, 1.2);
-    }
-}
 
 .bottom-left {
     position: absolute;

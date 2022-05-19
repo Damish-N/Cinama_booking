@@ -9,7 +9,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/theater.css">
-    <title>Theater View</title>
+    <link rel="stylesheet" href="../css/header.css">
+    <title>Theaters</title>
+
 </head>
 
 <body>
@@ -17,8 +19,9 @@
         include '../controllers/theatersController.php';
            $all_theaters = getAllTheaters();
     ?>
+    <?php require '../common/header.php'; ?>
     <div class="slidecontainer">
-        <img class="zoomImgage" src="../image/tt.jpg" alt="beach side city view">
+        <img class="zoomImgage" src="../image/b1.jpg" alt="beach side city view">
         <div class="bottom-left">
             <h1>Theaters</h1>
         </div>

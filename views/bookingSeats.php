@@ -1,7 +1,11 @@
 <?php
-
+session_start();
 include '../controllers/theatersController.php';
-
+$email=$_SESSION['email'] ;
+$type=$_SESSION['usertype'];
+if($type==1){
+    $user = getCustomer($email);
+}
 
 $movie_id = $_GET['movie_id'];
 $theater_id = $_GET['theater_id'];
@@ -32,11 +36,11 @@ $seats=getAvailableSeats($date,$movie_id,$theater_id,$timeSlot);
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../css/bookingSeats.css">
-    <title>Seat Booking</title>
+    <title>Booking Seats</title>
 </head>
 <body>
 <?php include "../common/header.php"; ?>
-<form <?php echo 'action="./test.php?movie_id='.$movie_id.'&theater_id='.$theater_id.'&date='.$date.'&time='.$timeSlot.'"'?> class="add-booking-area" method="post">
+<form <?php echo 'action="./payementPage.php?movie_id='.$movie_id.'&theater_id='.$theater_id.'&date='.$date.'&time='.$timeSlot.'&userId='.$user[0]['customer_id'].'"'?> class="add-booking-area" method="post">
     <div class="input-field">
         <i class="fa fa-film" aria-hidden="true"></i>
         <input disabled value='<?php echo $movie[0]['name'].' Movie' ?>' required type="text" name="movie_name" placeholder="Movie"/>
@@ -62,7 +66,7 @@ $seats=getAvailableSeats($date,$movie_id,$theater_id,$timeSlot);
         <div class="input-field schedule">
             <h3 style="text-align: center">No Bal. Seats available</h3>
             <input disabled value=<?php echo ( $theater[0]['no_balcony_seats']-$seats[0]['no_balcony_seats']) ?>  type="text" placeholder=""/>
-            <input min="0" max=<?php echo( $theater[0]['no_balcony_seats']-$seats[0]['no_balcony_seats']) ?> type="number" name="noOfBal" placeholder="No of Bal"/>
+            <input required min="0" max=<?php echo( $theater[0]['no_balcony_seats']-$seats[0]['no_balcony_seats']) ?> type="number" name="noOfBal" placeholder="No of Bal"/>
         </div>
         <div class="input-field schedule">
             <h3 style="text-align: center">No ODC. Seats available</h3>
@@ -73,7 +77,7 @@ $seats=getAvailableSeats($date,$movie_id,$theater_id,$timeSlot);
             <h3 style="text-align: center">No BOXES available</h3>
             <input class="number-input" disabled value=<?php echo ( $theater[0]['no_of_box']-$seats[0]['no_of_box']) ?>   type="text"
                    placeholder="Time of Watch"/>
-            <input min="0" max=<?php echo ( $theater[0]['no_of_box']-$seats[0]['no_of_box']) ?>  type="number" name="noOfBox" placeholder="No of Box"/>
+            <input required min="0" max=<?php echo ( $theater[0]['no_of_box']-$seats[0]['no_of_box']) ?>  type="number" name="noOfBox" placeholder="No of Box"/>
         </div>
     </div>
     <input type="submit" name="signup-btn-on" class="btn" value="Reserve Ticket"/>

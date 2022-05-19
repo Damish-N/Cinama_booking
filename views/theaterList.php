@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,8 +10,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/theater.css">
     <link rel="stylesheet" href="../css/header.css">
-
     <title>Theaters</title>
+
 </head>
 
 <body>

@@ -74,7 +74,7 @@ function executeSchedule($data_movie_id, $data_date, $data_no_of_dates, $monday_
 
     executeQueryInsert($query,0);
 
-    $query_1 = "INSERT INTO `shedule`(`monday`, `tuesday`, `wendesday`, `thursday`, `friday`,
+    $query_1 = "INSERT INTO `shedule`(`monday`, `tuesday`, `wednesday`, `thursday`, `friday`,
                       `saturday`, `sunday`, `no_of_showing_dates`, `date_start`, `movie_id`,
                       `theater_id`, `is_showing`)
                        VALUES ('$monday_day_pattern_id','$tuesday_day_pattern_id','$wednesday_day_pattern_id',
@@ -85,6 +85,20 @@ function executeSchedule($data_movie_id, $data_date, $data_no_of_dates, $monday_
 
 }
 
+function executeQueryWithInsert($query): bool
+{
+    require('connection.php');
+    $result = mysqli_query($connection, $query);
+    if($result){
+        echo '<script>alert("Success"); </script>';
+        return true;
+    }else{
+        echo "Error: " . $query . "<br>" . mysqli_error($connection);
+        return false;
+    }
+    mysqli_close($connection);
+    unset($_POST);
+}
 
 function executeQueryInsert($query,$final){
     require('connection.php');
@@ -94,6 +108,10 @@ function executeQueryInsert($query,$final){
     }
     mysqli_close($connection);
     unset($_POST);
+
+//    else{
+//        echo "Error: " . $query . "<br>" . mysqli_error($connection);
+//    }
 }
 
 

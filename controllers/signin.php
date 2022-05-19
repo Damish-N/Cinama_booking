@@ -52,6 +52,7 @@ require_once('./../controllers/connection.php');
 							
 							$_SESSION['email']= $row['email'];
 							$_SESSION['usertype']= $row['type'];
+                            $_SESSION['user_id']= $row['customer_id'];
 							$_SESSION['message']= "You are now logged in";
 	
 							if ($_SESSION['usertype'] == 1) {

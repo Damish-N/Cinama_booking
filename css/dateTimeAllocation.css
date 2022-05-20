@@ -20,3 +20,24 @@
     display: flex;
     flex-direction: row;
 }
+
+.inactive{
+    background-color: red;
+    font-size: 20px;
+    border: 1px solid red;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    padding: 2px;
+     pointer-events: none;
+}
+
+.active-mode{
+    background-color: green;
+    font-size: 20px;
+    border: 1px solid green;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    padding: 2px;
+}

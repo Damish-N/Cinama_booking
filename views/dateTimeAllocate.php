@@ -2,7 +2,6 @@
 include "../controllers/bookingController.php";
 
 
-
 $movie_id = $_GET['movie_id'];
 $theater_id = $_GET['theater_id'];
 ////echo $movie_id;
@@ -10,6 +9,7 @@ $theater_id = $_GET['theater_id'];
 $movie = getTheMovieByIdBookingPage($movie_id);
 $theater = getTheTheaterBookingPage($theater_id);
 
+$dayWithSchedule_check = getScheduleDayByDay($theater_id, $movie_id);
 
 function getArrayOfSchedule($day)
 {
@@ -17,6 +17,7 @@ function getArrayOfSchedule($day)
     $theater_id = $_GET['theater_id'];
     $dayWithSchedule = getScheduleDayByDay($theater_id, $movie_id);
 
+//    echo '<h3> '.sizeof($dayWithSchedule).' </h3>';
 
     $Mon = getPatternOfArray($dayWithSchedule[0]['monday'] % 8);
     $Tue = getPatternOfArray($dayWithSchedule[0]['tuesday'] % 8);
@@ -72,150 +73,158 @@ function getArrayOfSchedule($day)
 <body>
 <?php include "../common/header.php"; ?>
 
-<div class="container">
-    <div class="cinema-detail">
-        <div class="input-field">
-            <i class="fa fa-film" aria-hidden="true"></i>
-            <input disabled value='<?php echo $theater[0]['theater_name']."- Cinma" ?>' required type="text" name="movie_name"
-                   placeholder="Movie"/>
+<?php if (sizeof($dayWithSchedule_check) == 0) { ?>
+    <div class="container">
+        <h2 style="text-align: center">No Schedule available</h2>
+    </div>
+<?php } else { ?>
+    <div class="container">
+        <div class="cinema-detail">
+            <div class="input-field">
+                <i class="fa fa-film" aria-hidden="true"></i>
+                <input disabled value='<?php echo $theater[0]['theater_name'] . "- Cinma" ?>' required type="text"
+                       name="movie_name"
+                       placeholder="Movie"/>
+            </div>
+            <div class="input-field">
+                <i class="fa fa-film" aria-hidden="true"></i>
+                <input disabled value='<?php echo $movie[0]['name'] . "- Movie" ?>' type="text" name="theater_id"
+                />
+            </div>
         </div>
-        <div class="input-field">
-            <i class="fa fa-film" aria-hidden="true"></i>
-            <input disabled  value='<?php echo $movie[0]['name']."- Movie" ?>'  type="text" name="theater_id"
-                   />
+
+
+        <?php $today = date("Y-m-d"); ?>
+
+        <div class="time-allocation">
+            <div class="input-field schedule">
+                <h4><?php
+                    $timestamp = strtotime($today);
+                    $day = date('D', $timestamp);
+                    echo $day;;
+                    $daySchedule = getArrayOfSchedule($day);
+                    ?></h4>
+                <input disabled value="<?php echo $today ?>" type="text" placeholder=""/>
+                <div class="btn-area">
+
+                    <a <?php echo 'href="./bookingSeats.php?movie_id=' . $movie_id . '&theater_id=' . $theater_id . '&date=' . $today . '&time=0' . '"' ?>  <?php if ($daySchedule[0] == 0) { ?> class="inactive" <?php } else { ?> class="active-mode" <?php } ?> >M</a>
+
+                    <a <?php echo 'href="./bookingSeats.php?movie_id=' . $movie_id . '&theater_id=' . $theater_id . '&date=' . $today . '&time=1' . '"' ?>  <?php if ($daySchedule[1] == 0) { ?> class="inactive" <?php } else { ?> class="active-mode" <?php } ?> >D</a>
+                    <a <?php echo 'href="./bookingSeats.php?movie_id=' . $movie_id . '&theater_id=' . $theater_id . '&date=' . $today . '&time=2' . '"' ?>  <?php if ($daySchedule[2] == 0) { ?> class="inactive" <?php } else { ?> class="active-mode" <?php } ?> >N</a>
+
+                </div>
+            </div>
+            <div class="input-field schedule">
+                <h4><?php
+                    $today = date_create($today)->modify('1 days')->format('Y-m-d');
+                    $timestamp = strtotime($today);
+                    $day = date('D', $timestamp);
+                    echo $day;;
+                    $daySchedule = getArrayOfSchedule($day);
+                    ?></h4>
+                <input disabled value="<?php echo $today ?>" type="text" placeholder=""/>
+                <div class="btn-area">
+
+                    <a <?php echo 'href="./bookingSeats.php?movie_id=' . $movie_id . '&theater_id=' . $theater_id . '&date=' . $today . '&time=0' . '"' ?>  <?php if ($daySchedule[0] == 0) { ?> class="inactive" <?php } else { ?> class="active-mode" <?php } ?> >M</a>
+                    <a <?php echo 'href="./bookingSeats.php?movie_id=' . $movie_id . '&theater_id=' . $theater_id . '&date=' . $today . '&time=1' . '"' ?>  <?php if ($daySchedule[1] == 0) { ?> class="inactive" <?php } else { ?> class="active-mode" <?php } ?> >D</a>
+                    <a <?php echo 'href="./bookingSeats.php?movie_id=' . $movie_id . '&theater_id=' . $theater_id . '&date=' . $today . '&time=2' . '"' ?>  <?php if ($daySchedule[2] == 0) { ?> class="inactive" <?php } else { ?> class="active-mode" <?php } ?> >N</a>
+
+                </div>
+            </div>
+
+            <div class="input-field schedule">
+                <h4><?php
+                    $today = date_create($today)->modify('1 days')->format('Y-m-d');
+                    $timestamp = strtotime($today);
+                    $day = date('D', $timestamp);
+                    echo $day;;
+                    $daySchedule = getArrayOfSchedule($day);
+                    ?></h4>
+                <input disabled value="<?php echo $today ?>" type="text" placeholder=""/>
+                <div class="btn-area">
+
+                    <a <?php echo 'href="./bookingSeats.php?movie_id=' . $movie_id . '&theater_id=' . $theater_id . '&date=' . $today . '&time=0' . '"' ?>  <?php if ($daySchedule[0] == 0) { ?> class="inactive" <?php } else { ?> class="active-mode" <?php } ?> >M</a>
+                    <a <?php echo 'href="./bookingSeats.php?movie_id=' . $movie_id . '&theater_id=' . $theater_id . '&date=' . $today . '&time=1' . '"' ?>  <?php if ($daySchedule[1] == 0) { ?> class="inactive" <?php } else { ?> class="active-mode" <?php } ?> >D</a>
+                    <a <?php echo 'href="./bookingSeats.php?movie_id=' . $movie_id . '&theater_id=' . $theater_id . '&date=' . $today . '&time=2' . '"' ?>  <?php if ($daySchedule[2] == 0) { ?> class="inactive" <?php } else { ?> class="active-mode" <?php } ?> >N</a>
+
+                </div>
+            </div>
+
+            <div class="input-field schedule">
+                <h4><?php
+                    $today = date_create($today)->modify('1 days')->format('Y-m-d');
+                    $timestamp = strtotime($today);
+                    $day = date('D', $timestamp);
+                    echo $day;;
+                    $daySchedule = getArrayOfSchedule($day);
+                    ?></h4>
+                <input disabled value="<?php echo $today ?>" type="text" placeholder=""/>
+                <div class="btn-area">
+
+                    <a <?php echo 'href="./bookingSeats.php?movie_id=' . $movie_id . '&theater_id=' . $theater_id . '&date=' . $today . '&time=0' . '"' ?>  <?php if ($daySchedule[0] == 0) { ?> class="inactive" <?php } else { ?> class="active-mode" <?php } ?> >M</a>
+                    <a <?php echo 'href="./bookingSeats.php?movie_id=' . $movie_id . '&theater_id=' . $theater_id . '&date=' . $today . '&time=1' . '"' ?>  <?php if ($daySchedule[1] == 0) { ?> class="inactive" <?php } else { ?> class="active-mode" <?php } ?> >D</a>
+                    <a <?php echo 'href="./bookingSeats.php?movie_id=' . $movie_id . '&theater_id=' . $theater_id . '&date=' . $today . '&time=2' . '"' ?>  <?php if ($daySchedule[2] == 0) { ?> class="inactive" <?php } else { ?> class="active-mode" <?php } ?> >N</a>
+
+                </div>
+            </div>
+
+            <div class="input-field schedule">
+                <h4><?php
+                    $today = date_create($today)->modify('1 days')->format('Y-m-d');
+                    $timestamp = strtotime($today);
+                    $day = date('D', $timestamp);
+                    echo $day;;
+                    $daySchedule = getArrayOfSchedule($day);
+                    ?></h4>
+                <input disabled value="<?php echo $today ?>" type="text" placeholder=""/>
+                <div class="btn-area">
+
+                    <a <?php echo 'href="./bookingSeats.php?movie_id=' . $movie_id . '&theater_id=' . $theater_id . '&date=' . $today . '&time=0' . '"' ?>  <?php if ($daySchedule[0] == 0) { ?> class="inactive" <?php } else { ?> class="active-mode" <?php } ?> >M</a>
+                    <a <?php echo 'href="./bookingSeats.php?movie_id=' . $movie_id . '&theater_id=' . $theater_id . '&date=' . $today . '&time=1' . '"' ?>  <?php if ($daySchedule[1] == 0) { ?> class="inactive" <?php } else { ?> class="active-mode" <?php } ?> >D</a>
+                    <a <?php echo 'href="./bookingSeats.php?movie_id=' . $movie_id . '&theater_id=' . $theater_id . '&date=' . $today . '&time=2' . '"' ?>  <?php if ($daySchedule[2] == 0) { ?> class="inactive" <?php } else { ?> class="active-mode" <?php } ?> >N</a>
+
+                </div>
+            </div>
+
+            <div class="input-field schedule">
+                <h4><?php
+                    $today = date_create($today)->modify('1 days')->format('Y-m-d');
+                    $timestamp = strtotime($today);
+                    $day = date('D', $timestamp);
+                    echo $day;;
+                    $daySchedule = getArrayOfSchedule($day);
+                    ?></h4>
+                <input disabled value="<?php echo $today ?>" type="text" placeholder=""/>
+                <div class="btn-area">
+
+                    <a <?php echo 'href="./bookingSeats.php?movie_id=' . $movie_id . '&theater_id=' . $theater_id . '&date=' . $today . '&time=0' . '"' ?>  <?php if ($daySchedule[0] == 0) { ?> class="inactive" <?php } else { ?> class="active-mode" <?php } ?> >M</a>
+                    <a <?php echo 'href="./bookingSeats.php?movie_id=' . $movie_id . '&theater_id=' . $theater_id . '&date=' . $today . '&time=1' . '"' ?>  <?php if ($daySchedule[1] == 0) { ?> class="inactive" <?php } else { ?> class="active-mode" <?php } ?> >D</a>
+                    <a <?php echo 'href="./bookingSeats.php?movie_id=' . $movie_id . '&theater_id=' . $theater_id . '&date=' . $today . '&time=2' . '"' ?>  <?php if ($daySchedule[2] == 0) { ?> class="inactive" <?php } else { ?> class="active-mode" <?php } ?> >N</a>
+
+                </div>
+            </div>
+
+            <div class="input-field schedule">
+                <h4><?php
+                    $today = date_create($today)->modify('1 days')->format('Y-m-d');
+                    $timestamp = strtotime($today);
+                    $day = date('D', $timestamp);
+                    echo $day;;
+                    $daySchedule = getArrayOfSchedule($day);
+                    ?></h4>
+                <input disabled value="<?php echo $today ?>" type="text" placeholder=""/>
+                <div class="btn-area">
+
+                    <a <?php echo 'href="./bookingSeats.php?movie_id=' . $movie_id . '&theater_id=' . $theater_id . '&date=' . $today . '&time=0' . '"' ?>  <?php if ($daySchedule[0] == 0) { ?> class="inactive" <?php } else { ?> class="active-mode" <?php } ?> >M</a>
+                    <a <?php echo 'href="./bookingSeats.php?movie_id=' . $movie_id . '&theater_id=' . $theater_id . '&date=' . $today . '&time=1' . '"' ?>  <?php if ($daySchedule[1] == 0) { ?> class="inactive" <?php } else { ?> class="active-mode" <?php } ?> >D</a>
+                    <a <?php echo 'href="./bookingSeats.php?movie_id=' . $movie_id . '&theater_id=' . $theater_id . '&date=' . $today . '&time=2' . '"' ?>  <?php if ($daySchedule[2] == 0) { ?> class="inactive" <?php } else { ?> class="active-mode" <?php } ?> >N</a>
+
+                </div>
+            </div>
+
         </div>
     </div>
-
-
-    <?php $today = date("Y-m-d"); ?>
-    <div class="time-allocation">
-        <div class="input-field schedule">
-            <h4><?php
-                $timestamp = strtotime($today);
-                $day = date('D', $timestamp);
-                echo $day;;
-                $daySchedule=getArrayOfSchedule($day);
-                ?></h4>
-            <input disabled value="<?php echo $today ?>" type="text" placeholder=""/>
-            <div class="btn-area">
-
-                <a <?php echo 'href="./bookingSeats.php?movie_id='.$movie_id.'&theater_id='.$theater_id.'&date='.$today.'&time=0'.'"' ?>  <?php if ($daySchedule[0] == 0) { ?> style="pointer-events: none" <?php } ?>  >M</a>
-
-                <a <?php echo 'href="./bookingSeats.php?movie_id='.$movie_id.'&theater_id='.$theater_id.'&date='.$today.'&time=1'.'"' ?>   <?php if ($daySchedule[1] == 0) { ?> style="pointer-events: none" <?php } ?>  >D</a>
-                <a <?php echo 'href="./bookingSeats.php?movie_id='.$movie_id.'&theater_id='.$theater_id.'&date='.$today.'&time=2'.'"' ?>   <?php if ($daySchedule[2] == 0) { ?> style="pointer-events: none" <?php } ?>  >N</a>
-
-            </div>
-        </div>
-        <div class="input-field schedule">
-            <h4><?php
-                $today = date_create($today)->modify('1 days')->format('Y-m-d');
-                $timestamp = strtotime($today);
-                $day = date('D', $timestamp);
-                echo $day;;
-                $daySchedule=getArrayOfSchedule($day);
-                ?></h4>
-            <input disabled value="<?php echo $today ?>" type="text" placeholder=""/>
-            <div class="btn-area">
-
-                <a <?php echo 'href="./bookingSeats.php?movie_id='.$movie_id.'&theater_id='.$theater_id.'&date='.$today.'&time=0'.'"' ?>  <?php if ($daySchedule[0] == 0) { ?> style="pointer-events: none" <?php } ?>  >M</a>
-                <a <?php echo 'href="./bookingSeats.php?movie_id='.$movie_id.'&theater_id='.$theater_id.'&date='.$today.'&time=1'.'"' ?>  <?php if ($daySchedule[1] == 0) { ?> style="pointer-events: none" <?php } ?>  >D</a>
-                <a <?php echo 'href="./bookingSeats.php?movie_id='.$movie_id.'&theater_id='.$theater_id.'&date='.$today.'&time=2'.'"' ?>  <?php if ($daySchedule[2] == 0) { ?> style="pointer-events: none" <?php } ?>  >N</a>
-
-            </div>
-        </div>
-
-        <div class="input-field schedule">
-            <h4><?php
-                $today = date_create($today)->modify('1 days')->format('Y-m-d');
-                $timestamp = strtotime($today);
-                $day = date('D', $timestamp);
-                echo $day;;
-                $daySchedule=getArrayOfSchedule($day);
-                ?></h4>
-            <input disabled value="<?php echo $today ?>" type="text" placeholder=""/>
-            <div class="btn-area">
-
-                <a <?php echo 'href="./bookingSeats.php?movie_id='.$movie_id.'&theater_id='.$theater_id.'&date='.$today.'&time=0'.'"' ?>  <?php if ($daySchedule[0] == 0) { ?> style="pointer-events: none" <?php } ?>  >M</a>
-                <a <?php echo 'href="./bookingSeats.php?movie_id='.$movie_id.'&theater_id='.$theater_id.'&date='.$today.'&time=1'.'"' ?>  <?php if ($daySchedule[1] == 0) { ?> style="pointer-events: none" <?php } ?>  >D</a>
-                <a <?php echo 'href="./bookingSeats.php?movie_id='.$movie_id.'&theater_id='.$theater_id.'&date='.$today.'&time=2'.'"' ?>  <?php if ($daySchedule[2] == 0) { ?> style="pointer-events: none" <?php } ?>  >N</a>
-
-            </div>
-        </div>
-
-        <div class="input-field schedule">
-            <h4><?php
-                $today = date_create($today)->modify('1 days')->format('Y-m-d');
-                $timestamp = strtotime($today);
-                $day = date('D', $timestamp);
-                echo $day;;
-                $daySchedule=getArrayOfSchedule($day);
-                ?></h4>
-            <input disabled value="<?php echo $today ?>" type="text" placeholder=""/>
-            <div class="btn-area">
-
-                <a <?php echo 'href="./bookingSeats.php?movie_id='.$movie_id.'&theater_id='.$theater_id.'&date='.$today.'&time=0'.'"' ?>  <?php if ($daySchedule[0] == 0) { ?> style="pointer-events: none" <?php } ?>  >M</a>
-                <a <?php echo 'href="./bookingSeats.php?movie_id='.$movie_id.'&theater_id='.$theater_id.'&date='.$today.'&time=1'.'"' ?>  <?php if ($daySchedule[1] == 0) { ?> style="pointer-events: none" <?php } ?>  >D</a>
-                <a <?php echo 'href="./bookingSeats.php?movie_id='.$movie_id.'&theater_id='.$theater_id.'&date='.$today.'&time=2'.'"' ?>  <?php if ($daySchedule[2] == 0) { ?> style="pointer-events: none" <?php } ?>  >N</a>
-
-            </div>
-        </div>
-
-        <div class="input-field schedule">
-            <h4><?php
-                $today = date_create($today)->modify('1 days')->format('Y-m-d');
-                $timestamp = strtotime($today);
-                $day = date('D', $timestamp);
-                echo $day;;
-                $daySchedule=getArrayOfSchedule($day);
-                ?></h4>
-            <input disabled value="<?php echo $today ?>" type="text" placeholder=""/>
-            <div class="btn-area">
-
-                <a <?php echo 'href="./bookingSeats.php?movie_id='.$movie_id.'&theater_id='.$theater_id.'&date='.$today.'&time=0'.'"' ?>  <?php if ($daySchedule[0] == 0) { ?> style="pointer-events: none" <?php } ?>  >M</a>
-                <a <?php echo 'href="./bookingSeats.php?movie_id='.$movie_id.'&theater_id='.$theater_id.'&date='.$today.'&time=1'.'"' ?>  <?php if ($daySchedule[1] == 0) { ?> style="pointer-events: none" <?php } ?>  >D</a>
-                <a <?php echo 'href="./bookingSeats.php?movie_id='.$movie_id.'&theater_id='.$theater_id.'&date='.$today.'&time=2'.'"' ?>  <?php if ($daySchedule[2] == 0) { ?> style="pointer-events: none" <?php } ?>  >N</a>
-
-            </div>
-        </div>
-
-        <div class="input-field schedule">
-            <h4><?php
-                $today = date_create($today)->modify('1 days')->format('Y-m-d');
-                $timestamp = strtotime($today);
-                $day = date('D', $timestamp);
-                echo $day;;
-                $daySchedule=getArrayOfSchedule($day);
-                ?></h4>
-            <input disabled value="<?php echo $today ?>" type="text" placeholder=""/>
-            <div class="btn-area">
-
-                <a <?php echo 'href="./bookingSeats.php?movie_id='.$movie_id.'&theater_id='.$theater_id.'&date='.$today.'&time=0'.'"' ?>  <?php if ($daySchedule[0] == 0) { ?> style="pointer-events: none" <?php } ?>  >M</a>
-                <a <?php echo 'href="./bookingSeats.php?movie_id='.$movie_id.'&theater_id='.$theater_id.'&date='.$today.'&time=1'.'"' ?>  <?php if ($daySchedule[1] == 0) { ?> style="pointer-events: none" <?php } ?>  >D</a>
-                <a <?php echo 'href="./bookingSeats.php?movie_id='.$movie_id.'&theater_id='.$theater_id.'&date='.$today.'&time=2'.'"' ?>  <?php if ($daySchedule[2] == 0) { ?> style="pointer-events: none" <?php } ?>  >N</a>
-
-            </div>
-        </div>
-
-        <div class="input-field schedule">
-            <h4><?php
-                $today = date_create($today)->modify('1 days')->format('Y-m-d');
-                $timestamp = strtotime($today);
-                $day = date('D', $timestamp);
-                echo $day;;
-                $daySchedule=getArrayOfSchedule($day);
-                ?></h4>
-            <input disabled value="<?php echo   $today?>" type="text" placeholder=""/>
-            <div class="btn-area">
-
-                <a <?php echo 'href="./bookingSeats.php?movie_id='.$movie_id.'&theater_id='.$theater_id.'&date='.$today.'&time=0'.'"' ?>  <?php if ($daySchedule[0] == 0) { ?> style="pointer-events: none" <?php } ?>  >M</a>
-                <a <?php echo 'href="./bookingSeats.php?movie_id='.$movie_id.'&theater_id='.$theater_id.'&date='.$today.'&time=1'.'"' ?>  <?php if ($daySchedule[1] == 0) { ?> style="pointer-events: none" <?php } ?>  >D</a>
-                <a <?php echo 'href="./bookingSeats.php?movie_id='.$movie_id.'&theater_id='.$theater_id.'&date='.$today.'&time=2'.'"' ?>  <?php if ($daySchedule[2] == 0) { ?> style="pointer-events: none" <?php } ?>  >N</a>
-
-            </div>
-        </div>
-
-    </div>
-</div>
+<?php } ?>
 
 
 <?php include "../common/footer.php"; ?>

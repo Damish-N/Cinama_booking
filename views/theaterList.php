@@ -37,7 +37,7 @@
                 </div>
                 <div class="card-text">
                     <p>'.$all_theaters[$i]['theater_name'].'</p>
-                    <a href="./theaterView.php?theater_id='.$all_theaters[$i]['theater_id'].'" class="btn">See more</a>
+                    <a href="'. get_url('views/theaterView.php?theater_id='.$all_theaters[$i]['theater_id']).'" class="btn">See more</a>
                 </div>
             </div>
         </div>

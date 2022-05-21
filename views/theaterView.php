@@ -9,7 +9,7 @@ $movie_ids = getTheMoviesViaTheater($id);
 
 $movies = array();
 for ($i = 0; $i < sizeof($movie_ids); $i++) {
-    echo $movie_ids[$i];
+//    echo $movie_ids[$i];
     $movies[] = getTheMovieById($movie_ids[$i]['movie_id']);
 }
 

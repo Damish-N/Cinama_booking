@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 18, 2022 at 01:40 PM
+-- Generation Time: May 21, 2022 at 03:25 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.8
 
@@ -65,11 +65,12 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`customer_id`, `password`, `first_name`, `last_name`, `email`, `city`, `contact_no`, `type`) VALUES
-(1, '$2y$10$5YvJeuRnFcb5LBkjHY/PyePBfR2ty4ysN1/zzSmt3at8UiGrQQ9fy', 'Fresh ', 'World', 'ravinduranaweera@gmail.co', 'Pannipitiya', 3262457, 1),
-(2, '$2y$10$ZLv6IiGTZdBLhcnMQHInSuuaAY46p4sMHf11m5VPAxtF6LjElkkTq', 'Fresh ', 'World', 'ravinduranaweera@gmail.co', 'Pannipitiya', 3262457, 1),
-(3, '$2y$10$T5I4u3h1O5dy2RChe2UsLe0SZGb.wei/8kbR.pu4OnHERz/SjIqxG', 'Fresh ', 'World', 'ravinduranaweera@gmail.co', 'Pannipitiya', 3262457, 1),
+(1, '$2y$10$5YvJeuRnFcb5LBkjHY/PyePBfR2ty4ysN1/zzSmt3at8UiGrQQ9fy', 'Fresh ', 'World', 'ravinduranaweera1@gmail.co', 'Pannipitiya', 3262457, 1),
+(2, '$2y$10$ZLv6IiGTZdBLhcnMQHInSuuaAY46p4sMHf11m5VPAxtF6LjElkkTq', 'Fresh ', 'World', 'ravinduranaweera2@gmail.co', 'Pannipitiya', 3262457, 1),
+(3, '$2y$10$T5I4u3h1O5dy2RChe2UsLe0SZGb.wei/8kbR.pu4OnHERz/SjIqxG', 'Fresh ', 'World', 'ravinduranaweera3@gmail.co', 'Pannipitiya', 3262457, 1),
 (4, '$2y$10$LTbcHKLn8Dv/e.4/GfPu2efpbIG6ddsA0YOETCL5CiwXXsdimg8ja', '', '', 'salesfreshworldexporters@', '', 0, 1),
-(5, '$2y$10$WbpA9kwzCwqAq3AIlItRieb0hrp5yXDgwpnOLgUYul1MpfJSk1wjS', 'Damish', 'Nisal', 'damishnisal100@gmail.com', 'Galle', 776560118, 1);
+(5, '$2y$10$WbpA9kwzCwqAq3AIlItRieb0hrp5yXDgwpnOLgUYul1MpfJSk1wjS', 'Damish', 'Nisal', 'damishnisal100@gmail.com', 'Galle', 776560118, 1),
+(6, '$2y$10$FHDhMLJzz5kCWMSgz6khy.s1ZFKMR1Jt1z5/pQkHj2Hjy4fPgPtu6', 'Damish', 'Aruna Shantha', 'd@gmail.com', 'Walahanduwa', 776560118, 1);
 
 -- --------------------------------------------------------
 
@@ -178,7 +179,9 @@ INSERT INTO `movie` (`movie_id`, `name`, `release_date`, `director_name`, `langu
 (4, 'The Great Gatsby', '2022-05-16', 'F.Scott Fitzgerald', 'Tamil', 1, 'The Great Gatsby, F. Scott Fitzgerald’s third book, stands as the supreme achievement of his career.', './image/M4.jpg', 156, 5, 2),
 (5, 'The Trip', '2022-05-04', 'Elizabeth Gilbert', 'Tamil', 1, 'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.', './image/T1.webp', 566, 8, 2),
 (6, 'Boot Police', '2022-02-01', 'Ruth Ozeki', 'Tamil', 1, 'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.', './image/T2.jpg', 1982, 9, 2),
-(7, 'Batman and Superman', '2022-05-04', 'Ruth Ozeki', 'English', 0, 'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.', './image/T3.jpg', 1982, 9, 2);
+(7, 'Batman and Superman', '2022-05-04', 'Ruth Ozeki', 'Sinhala', 1, 'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.', './image/T3.jpg', 1982, 9, 2),
+(12, 'Test-1', '2022-05-19', ' Frank Darabont', 'Sinhala', 1, 'Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.', './image/movies/Test-1.png', 1982, 10, 120),
+(13, 'The Shawshank Redemption', '2022-05-22', ' Frank Darabont', 'Sinhala', 2, 'Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.', './image/movies/The_Shawshank_Redemption.jpg', 1982, 10, 3);
 
 -- --------------------------------------------------------
 
@@ -197,11 +200,12 @@ CREATE TABLE `movie_theater` (
 --
 
 INSERT INTO `movie_theater` (`id`, `movie_id`, `theater_id`) VALUES
-(1, 7, 1),
-(2, 3, 2),
-(3, 1, 1),
+(1, 1, 1),
 (6, 5, 1),
-(7, 6, 1);
+(7, 6, 1),
+(12, 1, 2),
+(13, 4, 1),
+(14, 12, 1);
 
 -- --------------------------------------------------------
 
@@ -244,7 +248,10 @@ CREATE TABLE `shedule` (
 INSERT INTO `shedule` (`schedule_id`, `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`, `no_of_showing_dates`, `date_start`, `movie_id`, `theater_id`, `is_showing`) VALUES
 (3, 2, 10, 17, 25, 34, 42, 50, 90, '2022-05-17', 1, 1, 1),
 (6, 4, 13, 18, 27, 39, 43, 51, 50, '2022-05-14', 5, 1, 1),
-(7, 4, 12, 20, 25, 33, 41, 49, 3, '2022-05-20', 6, 1, 1);
+(7, 4, 12, 20, 25, 33, 41, 49, 3, '2022-05-20', 6, 1, 1),
+(10, 8, 9, 17, 25, 33, 41, 49, 3, '2022-05-20', 1, 2, 0),
+(11, 1, 12, 17, 29, 33, 41, 49, 3, '2022-05-20', 4, 1, 1),
+(12, 8, 9, 24, 25, 33, 48, 49, 10, '2022-05-20', 12, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -263,17 +270,21 @@ CREATE TABLE `theater_owner` (
   `no_odc_seats` int(5) NOT NULL,
   `no_of_box` int(5) NOT NULL,
   `open_time` datetime NOT NULL,
-  `type` int(2) NOT NULL
+  `type` int(2) NOT NULL DEFAULT 2,
+  `isReg` tinyint(4) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `theater_owner`
 --
 
-INSERT INTO `theater_owner` (`theater_id`, `theater_name`, `email`, `password`, `location`, `contact_no`, `no_balcony_seats`, `no_odc_seats`, `no_of_box`, `open_time`, `type`) VALUES
-(1, 'xd', 'test@gmail.com', '$2y$10$RNVS9IyQ/XwicMClEnyQKuBIcgwMPLat.QFn4Gy4AN1feaZySiJeu', 'vfasd', 6666, 3, 35, 34, '0000-00-00 00:00:00', 0),
-(2, 'xd', 'salesfreshworldexporters@gmail.com', '$2y$10$COl679PUbdbJOCRyhn0XmOt.JRD.VAcYTopJxXE5p6HuleRcjpT1.', 'vfasd', 6666, 3, 35, 34, '0000-00-00 00:00:00', 0),
-(3, 'xd', 'salesfreshworldexporters@gmail.com', '$2y$10$MfSXOuz79iBl4Eo3tmjZ9eSAXETHhFcVlQiecgeSf6TronNDBWa7G', 'vfasd', 6666, 15, 35, 25, '0000-00-00 00:00:00', 0);
+INSERT INTO `theater_owner` (`theater_id`, `theater_name`, `email`, `password`, `location`, `contact_no`, `no_balcony_seats`, `no_odc_seats`, `no_of_box`, `open_time`, `type`, `isReg`) VALUES
+(1, 'Saovi', 'test@gmail.com', '$2y$10$WbpA9kwzCwqAq3AIlItRieb0hrp5yXDgwpnOLgUYul1MpfJSk1wjS', 'vfasd', 6666, 15, 35, 10, '2022-05-10 21:35:50', 2, 1),
+(2, 'Queens', 'salesfreshworldexporter1s@gmail.com', '$2y$10$COl679PUbdbJOCRyhn0XmOt.JRD.VAcYTopJxXE5p6HuleRcjpT1.', 'vfasd', 6666, 15, 25, 10, '0000-00-00 00:00:00', 2, 1),
+(3, 'Liberty', 'salesfreshworldexporters@gmail.com', '$2y$10$MfSXOuz79iBl4Eo3tmjZ9eSAXETHhFcVlQiecgeSf6TronNDBWa7G', 'vfasd', 6666, 15, 35, 5, '0000-00-00 00:00:00', 2, 1),
+(5, 'Vijee', 'vije@gmail.com', '$2y$10$c54vGss8CBIbxQrwXt72GenqsdJwezKOeEZ7GgntWqg5nAB9zEMs2', 'Walahanduwa', 776560118, 20, 25, 5, '2022-05-10 08:35:50', 2, 1),
+(6, 'Sony', 'sony@gmail.com', '$2y$10$Ux4FYTu2mOAErYVLE0PI9eM06v1j5aqUURyRW9EJhuOMTqWwBUB8W', 'galle', 771234567, 5, 25, 5, '2022-05-10 08:35:50', 2, 0),
+(7, 'Theater-1', 'theater@gmail.com', '$2y$10$lL.ncutwG07u4QMDv4ytpe8GTmdfxAuLyh2DCtW4F81E913F3fvwO', 'Galle', 776560118, 20, 25, 3, '2022-05-10 08:35:50', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -292,6 +303,28 @@ CREATE TABLE `ticket` (
   `movie_id` int(11) NOT NULL,
   `theater_owner` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `ticket`
+--
+
+INSERT INTO `ticket` (`ticket_id`, `no_balcony_seats`, `no_odc_seats`, `no_of_box`, `show_time`, `show_date`, `customer_id`, `movie_id`, `theater_owner`) VALUES
+(1, 2, 2, 2, 2, '2022-05-20', 1, 1, 1),
+(2, 3, 1, 2, 2, '2022-05-20', 2, 1, 1),
+(3, 3, 2, 1, 2, '2022-05-20', 5, 1, 1),
+(4, 2, 0, 0, 2, '2022-05-20', 5, 1, 1),
+(5, 2, 2, 2, 0, '2022-05-23', 5, 1, 2),
+(6, 0, 0, 1, 2, '2022-05-20', 5, 1, 1),
+(7, 0, 2, 1, 2, '2022-05-20', 5, 1, 1),
+(8, 0, 2, 0, 2, '2022-05-20', 5, 1, 1),
+(9, 3, 0, 0, 0, '2022-05-23', 5, 1, 2),
+(10, 3, 0, 0, 0, '2022-05-23', 5, 1, 2),
+(11, 0, 3, 0, 0, '2022-05-23', 5, 1, 2),
+(12, 3, 0, 0, 0, '2022-05-24', 5, 6, 1),
+(13, 0, 3, 0, 2, '2022-05-20', 5, 1, 1),
+(14, 4, 2, 0, 2, '2022-05-23', 6, 1, 1),
+(15, 3, 0, 0, 1, '2022-05-22', 5, 5, 1),
+(16, 3, 0, 0, 1, '2022-05-25', 6, 12, 1);
 
 --
 -- Indexes for dumped tables
@@ -372,7 +405,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `day_ schedule`
@@ -384,13 +417,13 @@ ALTER TABLE `day_ schedule`
 -- AUTO_INCREMENT for table `movie`
 --
 ALTER TABLE `movie`
-  MODIFY `movie_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `movie_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `movie_theater`
 --
 ALTER TABLE `movie_theater`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `payment`
@@ -402,19 +435,19 @@ ALTER TABLE `payment`
 -- AUTO_INCREMENT for table `shedule`
 --
 ALTER TABLE `shedule`
-  MODIFY `schedule_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `schedule_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `theater_owner`
 --
 ALTER TABLE `theater_owner`
-  MODIFY `theater_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `theater_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `ticket`
 --
 ALTER TABLE `ticket`
-  MODIFY `ticket_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ticket_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- Constraints for dumped tables

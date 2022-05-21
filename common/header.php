@@ -6,7 +6,7 @@
         </dev>
 
         <div class="sear">
-            <img src="./image/logo2.png" alt="">
+            <img src="<?php  echo get_url("image/logo2.png"); ?>" alt="">
         </div>
         <div class="part headericon">
             <i class="fa fa-user-circle" aria-hidden="true"></i>
@@ -18,7 +18,7 @@
         <div id="nav">
             <ul>
                 <li><a href="<?php  echo get_url("home.php"); ?>">Home</a></li>
-                <li><a href="./views/theaterList.php">Theaters</a></li>
+                <li><a href="<?php  echo get_url("views/theaterList.php"); ?>">Theaters</a></li>
                 <li><a href="">Category</a>
                     <ul class="dropdown">
                         <li><a href="<?php  echo get_url("views/movies.php?movie_type=English"); ?>">English Movies  &nbsp; </a></li>
@@ -26,7 +26,7 @@
                         <li><a href="<?php echo get_url('views/movies.php?movie_type=Sinhala'); ?>">Sinhala Movies  &nbsp; </a></li>
                     </ul>
                 </li>
-                <li><a href="">About us</a></li>
+<!--                <li><a href="">About us</a></li>-->
                 <li><a href="<?php  echo get_url("views/signin.php"); ?>">Log in</a></li>
 
             </ul>

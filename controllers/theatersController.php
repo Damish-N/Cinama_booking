@@ -6,7 +6,7 @@ include "../controllers/addMovieController.php";
 
 function getAllTheaters()
 {
-    $query = "SELECT * FROM theater_owner;";
+    $query = "SELECT * FROM theater_owner WHERE isReg=1;";
 
     return executeQuery($query);
 

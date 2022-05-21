@@ -31,7 +31,7 @@
                         <aside class="col-sm-5 border-right">
                             <article class="gallery-wrap">
                                 <div class="img-big-wrap mt-5 mx-5">
-                                    <div> <a href="#"><img style="width: 450px; height: 500px; object-fit: cover;"
+                                    <div> <a href="#"><img style="width: 340px; height: 420px; object-fit: cover;"
                                                 src="../../<?php echo $value['url']; ?>"> </a></div>
                                 </div> <!-- slider-product.// -->
                             </article> <!-- gallery-wrap .end// -->

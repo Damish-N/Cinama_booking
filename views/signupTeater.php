@@ -41,7 +41,7 @@ $errors = array();  ?>
 
                     <div class="input-field">
                         <i class="fas fa-user"></i>
-                        <input type="text" name="theatername" placeholder="Theater Name"
+                        <input required  type="text" name="theatername" placeholder="Theater Name"
                             value="<?php if(isset($username)){ echo $username;} ?>"
                             oninput="validateUsername(this, 0,50)" />
                     </div>
@@ -65,7 +65,7 @@ $errors = array();  ?>
 
                     <div class="input-field">
                         <i class="fas fa-envelope"></i>
-                        <input type="email" name="email" value="<?php if(isset($email)){ echo $email;} ?>"
+                        <input required type="email" name="email" value="<?php if(isset($email)){ echo $email;} ?>"
                             placeholder="Email" oninput="validateEmail(this, 0,254)" />
                     </div>
                 </div>
@@ -91,7 +91,7 @@ $errors = array();  ?>
 
                     <div class="input-field" id="input-field-password">
                         <i class="fas fa-lock"></i>
-                        <input type="password" name="password" placeholder="Password"
+                        <input required type="password" name="password" placeholder="Password"
                             value="<?php if(isset($email)){ echo $password;} ?>" placeholder="Password"
                             oninput="validatePassword(this, 0,50)" />
                     </div>
@@ -115,7 +115,7 @@ $errors = array();  ?>
 
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
-                        <input type="password" name="passwordConf" placeholder="Confirm Password"
+                        <input required type="password" name="passwordConf" placeholder="Confirm Password"
                             value="<?php if(isset($email)){ echo $password;} ?>" placeholder="Password"
                             oninput="validatePasswordConfirm(this, 0,50)" />
                     </div>
@@ -142,7 +142,7 @@ $errors = array();  ?>
 
                     <div class="input-field">
                         <i class="fas fa-user"></i>
-                        <input type="text" name="contactNo" placeholder="Contact Number"
+                        <input required type="text" name="contactNo" placeholder="Contact Number"
                             value="<?php if(isset($username)){ echo $username;} ?>"
                             oninput="validateUsername(this, 0,50)" />
                     </div>
@@ -166,7 +166,7 @@ $errors = array();  ?>
 
                     <div class="input-field">
                         <i class="fas fa-user"></i>
-                        <input type="text" name="location" placeholder="City"
+                        <input required type="text" name="location" placeholder="City"
                             value="<?php if(isset($username)){ echo $username;} ?>"
                             oninput="validateUsername(this, 0,50)" />
                     </div>
@@ -193,7 +193,7 @@ $errors = array();  ?>
 
                     <div class="input-field" id="input-field-password">
                         <i class="fas fa-lock"></i>
-                        <input type="number" name="odc" placeholder="ODC"
+                        <input required type="number" name="odc" placeholder="ODC"
                             value="<?php if(isset($email)){ echo $password;} ?>" placeholder="Password"
                             oninput="validatePassword(this, 0,50)" />
                     </div>
@@ -217,7 +217,7 @@ $errors = array();  ?>
 
                     <div class="input-field" id="input-field-password">
                         <i class="fas fa-lock"></i>
-                        <input type="number" name="balkeny" placeholder="Balkeny"
+                        <input required type="number" name="balkeny" placeholder="Balkeny"
                             value="<?php if(isset($email)){ echo $password;} ?>" placeholder="Password"
                             oninput="validatePassword(this, 0,50)" />
                     </div>
@@ -241,7 +241,7 @@ $errors = array();  ?>
 
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
-                        <input type="number" name="box" placeholder="Box Type"
+                        <input required type="number" name="box" placeholder="Box Type"
                             value="<?php if(isset($email)){ echo $password;} ?>" placeholder="Password"
                             oninput="validatePasswordConfirm(this, 0,50)" />
                     </div>

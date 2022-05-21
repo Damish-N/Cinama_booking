@@ -15,7 +15,9 @@
 
 <body>
     <div class="dashcontainer">
-        <?php include './inc/sidebar.php' ?>
+        <?php include './inc/sidebar.php' ;
+            header("Location:http://localhost/cinama/views/dashboard/theaterList.php");
+        ?>
         <div class="main">
            
         </div>

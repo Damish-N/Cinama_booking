@@ -1,9 +1,11 @@
+<?php //include(dirname(__FILE__)."/config.php"); ?>
+
 <div class="surfCardWrapper">
     <?php
     for ($i = 0; $i < 3; $i++) {
        echo ' <div class="surfCard">
             <div class="surfCard01">
-                <img src='.$retrieve_data_imdm_movies[$i]['url'].' alt="">
+                <img src=http://localhost/cinama/'.$retrieve_data_imdm_movies[$i]['url'].' alt="">
             </div>
             <div class="surfCard02">
                 <p class="surfCardContent">'.$retrieve_data_imdm_movies[$i]['name']. '</p>

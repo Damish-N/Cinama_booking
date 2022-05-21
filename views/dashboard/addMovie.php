@@ -33,14 +33,14 @@
                         <div class="left">
                             <div class="input-field">
                                 <i class="fas fa-user"></i>
-                                <input type="text" name="moviename" placeholder="Movie Name" value=""
+                                <input required type="text" name="moviename" placeholder="Movie Name" value=""
                                     oninput="validateUsername(this, 0,50)" />
                             </div>
                         </div>
                         <div class="right">
                             <div class="input-field">
                                 <i class="fas fa-envelope"></i>
-                                <input type="text" name="lang" value="" placeholder="Language"
+                                <input required type="text" name="lang" value="" placeholder="Language"
                                     oninput="validateEmail(this, 0,254)" />
                             </div>
                         </div>
@@ -50,14 +50,14 @@
                         <div class="left">
                             <div class="input-field" id="input-field-password">
                                 <i class="fas fa-lock"></i>
-                                <input type="date" name="outdate" placeholder="Release Date" value=""
+                                <input required type="date" name="outdate" placeholder="Release Date" value=""
                                     placeholder="Password" oninput="validatePassword(this, 0,50)" />
                             </div>
                         </div>
                         <div class="right">
                             <div class="input-field">
                                 <i class="fas fa-lock"></i>
-                                <input type="number" name="duration" placeholder="Duration" value=""
+                                <input required type="number" name="duration" placeholder="Duration" value=""
                                     placeholder="Password" oninput="validatePasswordConfirm(this, 0,50)" />
                             </div>
                         </div>
@@ -68,7 +68,7 @@
 
                             <div class="input-field">
                                 <i class="fas fa-user"></i>
-                                <input type="text" name="des" placeholder="Discription"
+                                <input required type="text" name="des" placeholder="Discription"
                                     value="<?php if(isset($username)){ echo $username;} ?>"
                                     oninput="validateUsername(this, 0,50)" />
                             </div>
@@ -77,7 +77,7 @@
 
                             <div class="input-field">
                                 <i class="fas fa-user"></i>
-                                <input type="text" name="directorName" placeholder="DirectorName"
+                                <input required type="text" name="directorName" placeholder="DirectorName"
                                     value="<?php if(isset($username)){ echo $username;} ?>"
                                     oninput="validateUsername(this, 0,50)" />
                             </div>
@@ -90,7 +90,7 @@
 
                             <div class="input-field" id="input-field-password">
                                 <i class="fas fa-lock"></i>
-                                <input type="file" name="file" placeholder="ODC" value=""
+                                <input required type="file" name="file" placeholder="ODC" value=""
                                     oninput="validatePassword(this, 0,50)" />
                             </div>
                         </div>
@@ -99,7 +99,7 @@
 
                             <div class="input-field">
                                 <i class="fas fa-lock"></i>
-                                <input type="number" name="imbd" placeholder="IMBD Value" value=""
+                                <input required type="number" name="imbd" placeholder="IMBD Value" value=""
                                     placeholder="Password" oninput="validatePasswordConfirm(this, 0,50)" />
                             </div>
                         </div>

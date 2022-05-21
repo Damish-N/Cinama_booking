@@ -1,6 +1,8 @@
 <?php
 $id = $_GET['theater_id'];
 include "../controllers/theatersController.php";
+include(dirname(__FILE__) . "../controllers/config.php");
+
 
 $theater = getTheTheater($id);
 $movie_ids = getTheMoviesViaTheater($id);
@@ -158,7 +160,7 @@ include '../common/header.php';
                         <div class="header">
                            <h3 style="text-wrap: initial">' . $movies[$i][0]['name'] . '</h3 style="text-wrap: initial">
                         </div>
-                        <img src=' . $movies[$i][0]['url'] . ' alt="">
+                        <img src='.get_url( $movies[$i][0]['url'] ) .' alt="">
                         <div class="bottom-bar">
                            <button class="book-btn">
                              <a style="text-decoration: none;color: white" href="../views/dateTimeAllocate.php?movie_id='.$movies[$i][0]['movie_id'].'&theater_id='.$id.'">Book Now</a>

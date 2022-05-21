@@ -1,5 +1,6 @@
+<?php include(dirname(__FILE__)."../../controllers/config.php"); ?>
 <div class="navigation">
-            <ul>
+            <ul style="padding-left: 0rem;">
                 <li>
                     <a href="#">
                         <span class="icon"><i class="fa fa-dashboard" aria-hidden="true"></i></span>
@@ -9,17 +10,17 @@
                     </a>
                 </li>
 
+<!--                <li>-->
+<!--                    <a href="#">-->
+<!--                        <span class="icon"><i class="fa fa-home" aria-hidden="true"></i></span>-->
+<!---->
+<!--                        <span class="titled">-->
+<!--                             Dashboard -->
+<!--                        </span>-->
+<!--                    </a>-->
+<!--                </li>-->
                 <li>
-                    <a href="#">
-                        <span class="icon"><i class="fa fa-home" aria-hidden="true"></i></span>
-
-                        <span class="titled">
-                             Dashboard 
-                        </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="./dashboard/theaterList.php">
+                    <a href="http://localhost/cinama/views/dashboard/theaterList.php">
                         <span class="icon"><i class="fa fa-users" aria-hidden="true"></i></span>
 
                         <span class="titled">
@@ -28,7 +29,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="./dashboard/addMovie.php">
+                    <a href="http://localhost/cinama/views/dashboard/addMovie.php">
                         <span class="icon"><i class="fa fa-comment" aria-hidden="true"></i></span>
 
                         <span class="titled">
@@ -37,7 +38,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="./dashboard/movieList.php">
+                    <a href="http://localhost/cinama/views/dashboard/movieList.php">
                         <span class="icon"><i class="fa fa-question-circle" aria-hidden="true"></i></span>
 
                         <span class="titled">
@@ -46,16 +47,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
-                        <span class="icon"><i class="fa fa-bars" aria-hidden="true"></i></span>
-
-                        <span class="titled">
-                             Setting 
-                        </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
+                    <a href="http://localhost/cinama/views/signin.php">
                         <span class="icon"><i class="fa fa-sign-out" aria-hidden="true"></i></span>
 
                         <span class="titled">

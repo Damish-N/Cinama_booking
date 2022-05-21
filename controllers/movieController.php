@@ -43,7 +43,7 @@ if (isset($_POST['addmov'])){
     if (in_array($fileActualExt, $allowed)) {
         if ($fileerror === 0) {
             if ($filesize < 1000000) {
-                $fileNewName = $movie_name.".".$fileActualExt;
+                $fileNewName = str_replace(' ', '_', $movie_name).".".$fileActualExt;
                 // echo $fileNewName;
                 $path = __DIR__.'/../image/movies/'.$fileNewName;
                 // echo $path;

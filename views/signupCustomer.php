@@ -75,30 +75,7 @@ $errors = array();
             </div>
 
             <div class="row">
-                <div class="left">
-                    <?php if(count($errors)>0): ?>
-                    <?php if(isset($errors['username'])): ?>
-                    <div class="alert error" id="alert00" role="alert">
-                        <p><i class="fas fa-exclamation-circle"></i><?php echo $errors['username'];  ?></p>
-                    </div>
-                    <?php else:  ?>
-                    <div class="alert error" id="alert00" role="alert" style="display:none">
-                        <p><i class="fas fa-exclamation-circle"></i></p>
-                    </div>
-                    <?php endif; ?>
-                    <?php else:  ?>
-                    <div class="alert error" id="alert00" role="alert" style="display:none">
-                        <p><i class="fas fa-exclamation-circle"></i></p>
-                    </div>
-                    <?php endif;  ?>
 
-                    <div class="input-field">
-                        <i class="fas fa-user"></i>
-                        <input type="text" name="username" placeholder="Username"
-                            value="<?php if(isset($username)){ echo $username;} ?>"
-                            oninput="validateUsername(this, 0,50)" />
-                    </div>
-                </div>
                 <div class="right">
                     <?php if(count($errors)>0): ?>
                     <?php if(isset($errors['email'])): ?>

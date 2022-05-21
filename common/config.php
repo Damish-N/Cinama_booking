@@ -1,6 +1,6 @@
 
 <?php 
-	$BASE_URL = "http://localhost/Cinama_booking";
+	$BASE_URL = "http://localhost/cinama";
 
 	function get_url($resource){
 		global $BASE_URL;

@@ -1,0 +1,128 @@
+.float-left {
+    float:left;
+    width:300px; // or 33% for equal width independent of parent width
+}
+.container-profile{
+    width: 80%;
+    /*background-color: #e8dbdb;*/
+
+    margin: 0 auto;
+}
+
+.image-view{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.image-view img{
+    width: 250px;
+    border-radius: 125px;
+}
+
+.detail-view{
+   display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contenido {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    justify-items: flex-end;
+    margin: 30px auto;
+    overflow: auto;
+    min-width: 440px;
+    max-width: 480px;
+    box-shadow: 0 0 10px rgb(202, 202, 204);
+    /*background-color: white;*/
+    border-radius: 2px;
+}
+.details {
+    margin: 5px;
+    padding: 0 12px;
+    background:white;
+    min-width: 200px;
+    max-width: 220px;
+    border-top: 1px dashed #c3c3c3;
+}
+.tinfo {
+    font-size: 0.85em;
+    font-weight: 300;
+    color: #726405;
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin:7px 0;
+}
+
+.tdata {
+    font-size: 0.7em;
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 0.5px;
+    margin:7px 0;
+}
+
+.name {
+    font-size: 1.3em;
+    font-weight: 300;
+}
+
+.link {
+    text-align: center;
+    margin-top:10px;
+}
+
+a {
+    text-decoration: none;
+    color:#55C9E6;
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 0.7px;
+    font-size: 0.7em;
+}
+.hqr{
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    margin: 0px auto;
+}
+.left-one{
+    background-repeat: no-repeat;
+    background-image: radial-gradient(circle at 0 96% , rgba(0,0,0,0) .2em, gray .3em, white .1em);
+}
+.right-one{
+    background-repeat: no-repeat;
+    background-image: radial-gradient(circle at 100% 96% , rgba(0,0,0,0) .2em, gray .3em, white .1em);
+}
+.column
+{
+    display: table-cell;
+    padding: 37px 0px;
+}
+.center{
+    background:white;
+}
+
+#qrcode img{
+    height:70px;
+    width:70px;
+    margin: 0 auto;
+}
+.masinfo{
+    display:block;
+}
+.left,.right{
+    width:49%;
+    display:inline-table;
+}
+
+.nesp{
+    letter-spacing: 0px;
+}
+.tickets-show{
+    width: 80%;
+    margin-bottom: 15px;
+}

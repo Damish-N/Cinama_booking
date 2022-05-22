@@ -1,16 +1,19 @@
 <?php
+session_start();
 include '../controllers/addMovieController.php';
+//include '../controllers/userController.php';
 $movie_id = $_POST['movieName'];
 $movie_date = $_POST['date'];
 $no_of_dates = $_POST['noOfDates'];
 
 
 if (isset($_POST['signup-btn'])) {
-
     $id = $_POST['movieId'];
     $date = $_POST['date'];
     $datesNO = $_POST['noOfDates'];
-
+    $theater_email=$_SESSION['email'];
+    $theater = getTheaterFrom($theater_email);
+    $theater_id=$theater[0]['theater_id'];
     $monday_day_pattern = checkDataDay($_POST['monMt']) . checkDataDay($_POST['monDt']) . checkDataDay($_POST['monNt']);
     $monday_pattern = scheduling_days($monday_day_pattern);
     $monday_day_pattern_id = getPatternId(0, $monday_pattern);
@@ -43,7 +46,7 @@ if (isset($_POST['signup-btn'])) {
 
     executeSchedule($id, $date, $datesNO, $monday_day_pattern_id
         , $tuesday_day_pattern_id, $wednesday_day_pattern_id, $thursday_day_pattern_id, $friday_day_pattern_id,
-        $saturday_day_pattern_id, $sunday_day_pattern_id);
+        $saturday_day_pattern_id, $sunday_day_pattern_id,$theater_id);
 
 }
 

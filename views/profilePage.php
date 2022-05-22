@@ -189,8 +189,8 @@ if ($_SESSION['usertype'] == 1) {
             </div>
             <div class="right">
                 <div class="input-field">
-                    <i class="fa fa-user-circle-o"></i>
-                    <input required type="text" name="box" placeholder=<?php echo $user[0]['location'] ?>/>
+                    <i class="fa fa-map-marker"></i>
+                    <input required type="text" name="box" placeholder=<?php echo $user[0]['location'] ?> />
                 </div>
             </div>
         </div>
@@ -204,7 +204,7 @@ if ($_SESSION['usertype'] == 1) {
             </div>
             <div class="right">
                 <div class="input-field">
-                    <i class="fa fa-user-circle-o"></i>
+                    <i class="fa fa-phone"></i>
                     <input required type="text" name="box" placeholder=<?php echo $user[0]['contact_no'] ?> />
                 </div>
             </div>

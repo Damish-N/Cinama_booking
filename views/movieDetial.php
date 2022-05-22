@@ -56,7 +56,7 @@ for ($i=0;$i<sizeof($theaters);$i++){
                         <h3 class="title mb-3"> <?php echo $value['name']; ?>
 
                         </h3>
-                        <a href="" class="btn btn-outline-primary text-uppercase m-2 " style="width: 150px">Trailer</a>
+<!--                        <a href="" class="btn btn-outline-primary text-uppercase m-2 " style="width: 150px">Trailer</a>-->
 
                         <dl class="item-property">
                             <dt>Language</dt>

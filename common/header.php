@@ -15,8 +15,8 @@ session_start();
         <div class="part headericon">
             <i class="fa fa-user-circle" aria-hidden="true"></i>
             <a href="<?php echo get_url("views/profilePage.php"); ?>" class="join">
-<!--                --><?php //echo $_SESSION['email'] ?>
-                Profile
+                <?php echo $_SESSION['email'] ?>
+<!--                Profile-->
             </a>
         </div>
     <?php } else {

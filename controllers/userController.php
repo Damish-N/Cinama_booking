@@ -30,6 +30,15 @@ function getTheMovieByIdUser($id)
     return executeQuery($query);
 }
 
+function getTheMoviesViaTheaterUser($id)
+{
+    $query = "SELECT movie_id FROM movie_theater where theater_id = $id";
+    return executeQuery($query);
+}
+
+
+
+
 
 ?>
 

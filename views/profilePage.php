@@ -6,6 +6,17 @@ if ($_SESSION['usertype'] == 1) {
     $tickets = getTickets($user[0]['customer_id']);
 } else {
     $user = getTheater($_SESSION['email']);
+    $movies = getTheMovieByIdUser($user[0]['theater_id']);
+
+//    $theater = getTheTheater($id);
+    $movie_ids = getTheMoviesViaTheaterUser($user[0]['theater_id']);
+
+    $movies = array();
+    for ($i = 0; $i < sizeof($movie_ids); $i++) {
+//    echo $movie_ids[$i];
+        $movies[] = getTheMovieByIdUser($movie_ids[$i]['movie_id']);
+    }
+
 
 }
 
@@ -50,13 +61,13 @@ if ($_SESSION['usertype'] == 1) {
                 <div class="left">
                     <div class="input-field">
                         <i class="fa fa-user-circle-o"></i>
-                        <input required type="text" name="box" placeholder=<?php echo $user[0]['first_name'] ?> />
+                        <input required type="text" name="box" placeholder=<?php echo $user[0]['first_name'] ?>/>
                     </div>
                 </div>
                 <div class="right">
                     <div class="input-field">
                         <i class="fa fa-user-circle-o"></i>
-                        <input required type="text" name="box" placeholder=<?php echo $user[0]['last_name'] ?> />
+                        <input required type="text" name="box" placeholder=<?php echo $user[0]['last_name'] ?>/>
                     </div>
                 </div>
             </div>
@@ -66,21 +77,21 @@ if ($_SESSION['usertype'] == 1) {
                 <div class="left">
                     <div class="input-field">
                         <i class="fa fa-user-circle-o"></i>
-                        <input required type="text" name="box" placeholder=<?php echo $user[0]['contact_no'] ?> />
+                        <input required type="text" name="box" placeholder=<?php echo $user[0]['contact_no'] ?>/>
                     </div>
 
                 </div>
                 <div class="right">
                     <div class="input-field">
                         <i class="fa fa-user-circle-o"></i>
-                        <input required type="text" name="box" placeholder=<?php echo $user[0]['city'] ?> />
+                        <input required type="text" name="box" placeholder=<?php echo $user[0]['city'] ?>/>
                     </div>
                 </div>
             </div>
 
             <div class="input-field">
                 <i class="fa fa-envelope"></i>
-                <input required type="text" name="box" placeholder=<?php echo $user[0]['email'] ?> />
+                <input required type="text" name="box" placeholder=<?php echo $user[0]['email'] ?>/>
             </div>
 
             <?php
@@ -89,18 +100,18 @@ if ($_SESSION['usertype'] == 1) {
             <div class="tickets-show">
                 <h3 style="padding: 10px; color: white;text-align: center">Booked Tickets</h3>
                 <div class="contenido">
-                    <?php for ($i=0;$i<sizeof($tickets);$i++) { ?>
+                    <?php for ($i = 0; $i < sizeof($tickets); $i++) { ?>
                         <div class="details">
-                            <div class="tinfo"><?php echo  'No: '.($i+1) ?>
+                            <div class="tinfo"><?php echo 'No: ' . ($i + 1) ?>
                             </div>
                             <div class="tinfo">
-                                Ticket ID : <?php  echo $tickets[$i]['ticket_id'] ?>
+                                Ticket ID : <?php echo $tickets[$i]['ticket_id'] ?>
                             </div>
                             <div class="tdata">
 
                                 <?php
                                 $theater = getTheMovieByIdUser($tickets[$i]['movie_id']);
-                                echo '   '. $theater[0]['name'];;
+                                echo '   ' . $theater[0]['name'];;
                                 ?>
                             </div>
                             <div class="masinfo">
@@ -109,11 +120,11 @@ if ($_SESSION['usertype'] == 1) {
                                         date
                                     </div>
                                     <div class="tdata nesp">
-                                      <?php
-                                      $timestamp = strtotime($tickets[$i]['show_date']);
-                                      $day = date('D', $timestamp);
-                                      echo $day.'   '. $tickets[$i]['show_date'];;
-                                      ?>
+                                        <?php
+                                        $timestamp = strtotime($tickets[$i]['show_date']);
+                                        $day = date('D', $timestamp);
+                                        echo $day . '   ' . $tickets[$i]['show_date'];;
+                                        ?>
                                     </div>
                                 </div>
                                 <div class="right">
@@ -122,7 +133,7 @@ if ($_SESSION['usertype'] == 1) {
                                     </div>
                                     <div class="tdata nesp">
                                         <?php
-                                        echo $day.'   '. $tickets[$i]['theater_name'];;
+                                        echo $day . '   ' . $tickets[$i]['theater_name'];;
                                         ?>
                                     </div>
                                 </div>
@@ -139,78 +150,100 @@ if ($_SESSION['usertype'] == 1) {
 
             </div>
 
-
         </div>
 
     <?php } elseif ($_SESSION['usertype'] == 2) { ?>
-        <h1 style="color: white; text-align: center;font-weight: bolder;padding: 15px 0">
-            <?php echo $user[0]['theater_name'] ?>
-        </h1>
-        <div class="image-view">
-            <img src="../image/logo.png" alt="" srcset="">
-        </div>
-        <div class="detail-view">
-            <div class="row">
-                <div class="left">
-                    <div class="input-field">
-                        <i class="fa fa-user-circle-o"></i>
-                        <input required type="text" name="box"
-                               placeholder=<?php echo $user[0]['no_balcony_seats'] . ' Balcony seats' ?> />
-                    </div>
-                </div>
-                <div class="right">
-                    <div class="input-field">
-                        <i class="fa fa-user-circle-o"></i>
-                        <input required type="text" name="box"
-                               placeholder=<?php echo $user[0]['no_of_box'] . ' Box seats' ?> />
-                    </div>
+    <h1 style="color: white; text-align: center;font-weight: bolder;padding: 15px 0">
+        <?php echo $user[0]['theater_name'] ?>
+    </h1>
+    <div class="image-view">
+        <img src="../image/logo.png" alt="" srcset="">
+    </div>
+    <div class="detail-view">
+        <div class="row">
+            <div class="left">
+                <div class="input-field">
+                    <i class="fa fa-user-circle-o"></i>
+                    <input required type="text" name="box"
+                           placeholder=<?php echo $user[0]['no_balcony_seats'] . ' Balcony seats' ?>/>
                 </div>
             </div>
-
-
-            <div class="row">
-                <div class="left">
-                    <div class="input-field">
-                        <i class="fa fa-user-circle-o"></i>
-                        <input required type="text" name="box"
-                               placeholder=<?php echo $user[0]['no_odc_seats'] . ' ODC seats' ?> />
-                    </div>
-
-                </div>
-                <div class="right">
-                    <div class="input-field">
-                        <i class="fa fa-user-circle-o"></i>
-                        <input required type="text" name="box" placeholder=<?php echo $user[0]['location'] ?> />
-                    </div>
+            <div class="right">
+                <div class="input-field">
+                    <i class="fa fa-user-circle-o"></i>
+                    <input required type="text" name="box"
+                           placeholder=<?php echo $user[0]['no_of_box'] . ' Box seats' ?>/>
                 </div>
             </div>
-            <div class="row">
-                <div class="left">
-                    <div class="input-field">
-                        <i class="fa fa-envelope"></i>
-                        <input required type="text" name="box" placeholder=<?php echo $user[0]['email'] ?> />
-                    </div>
+        </div>
 
+
+        <div class="row">
+            <div class="left">
+                <div class="input-field">
+                    <i class="fa fa-user-circle-o"></i>
+                    <input required type="text" name="box"
+                           placeholder=<?php echo $user[0]['no_odc_seats'] . ' ODC seats' ?>/>
                 </div>
-                <div class="right">
-                    <div class="input-field">
-                        <i class="fa fa-user-circle-o"></i>
-                        <input required type="text" name="box" placeholder=<?php echo $user[0]['contact_no'] ?> />
-                    </div>
+
+            </div>
+            <div class="right">
+                <div class="input-field">
+                    <i class="fa fa-user-circle-o"></i>
+                    <input required type="text" name="box" placeholder=<?php echo $user[0]['location'] ?>/>
                 </div>
             </div>
-
-
         </div>
-        <div class="tickets-show">
-            <h3 style="padding: 10px; color: white;text-align: center">Movies Shown by Theaters</h3>
+        <div class="row">
+            <div class="left">
+                <div class="input-field">
+                    <i class="fa fa-envelope"></i>
+                    <input required type="text" name="box" placeholder=<?php echo $user[0]['email'] ?> />
+                </div>
 
+            </div>
+            <div class="right">
+                <div class="input-field">
+                    <i class="fa fa-user-circle-o"></i>
+                    <input required type="text" name="box" placeholder=<?php echo $user[0]['contact_no'] ?> />
+                </div>
+            </div>
         </div>
-    <?php } ?>
 
 
-</div>
-<?php require '../common/footer.php' ?>
+    </div>
+    <h3 style="padding: 10px; color: white;text-align: center">Booked Tickets</h3>
+    <div style="width: unset" class="theaterCard">
+        <?php
+        if (sizeof($movies) > 0) {
+            ?>
+
+            <?php for ($i = 0; $i < sizeof($movies); $i++) { ?>
+                <div class="my-card">
+                    <div class="card-content">
+                        <div class="img-place">
+                            <div id="card-img"
+                                 style="background-image: url(<?php echo get_url($movies[$i][0]['url']); ?>)">
+                            </div>
+                        </div>
+                        <div class="card-text">
+                            <p><?php print_r( $movies[$i][0]['name']); ?></p>
+                            <a href="./movieDetial.php?movie_id=<?php echo $movies[$i][0]['movie_id']; ?>" class="btn">See
+                                more</a>
+                        </div>
+                    </div>
+                </div>
+            <?php } ?>
+
+        <?php } else { ?>
+            <h3 style="text-align: center ;padding: 25px;color: white">No Detail Tickets</h3>
+        <?php } ?>
+        <?php } ?>
+
+    </div>
+
+    </div>
+    <?php require '../common/footer.php' ?>
 
 
 </body>

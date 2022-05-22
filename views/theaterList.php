@@ -27,24 +27,18 @@
         </div>
     </div>
     <div class="theaterCard">
-        <?php
-            for ($i=0;$i<sizeof($all_theaters);$i++){
-                echo '
-                    <div class="my-card">
+        <?php for ($i=0;$i<sizeof($all_theaters);$i++): ?><div class="my-card">
             <div class="card-content">
                 <div class="img-place">
                     <div id="card-img"></div>
                 </div>
                 <div class="card-text">
-                    <p>'.$all_theaters[$i]['theater_name'].'</p>
-                    <a href="'. get_url('views/theaterView.php?theater_id='.$all_theaters[$i]['theater_id']).'" class="btn">See more</a>
+                    <p><?php echo ($all_theaters[$i]['theater_name']);  ?> - <?php echo ($all_theaters[$i]['location']);  ?> </p>
+                    <a href="./theaterView.php?theater_id=<?php echo ($all_theaters[$i]['theater_id']);  ?>" class="btn" STYLE="text-decoration: none;">See more</a>
                 </div>
             </div>
         </div>
-                ';
-            }
-
-        ?>
+        <?php endfor ?>
 
     </div>
 </body>

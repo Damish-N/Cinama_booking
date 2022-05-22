@@ -20,7 +20,7 @@
 
 <body>
     <div class="dashcontainer">
-        <?php include '../inc/sidebar.php' ?>
+        <?php include './inc/sidebar.php' ?>
         <div class="main">
             <h1>Movie View </h1>
             <div class="include m-4">

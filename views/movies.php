@@ -1,6 +1,6 @@
 <?php
 include '../controllers/theatersController.php';
-include(dirname(__FILE__) . "../controllers/config.php");
+// include( "http://localhost/cinama/views../controllers/config.php");
 
 $type = $_GET['movie_type'];
 
@@ -136,8 +136,7 @@ $movies = getAllTheMoviesTypeVice($type);
                             </div>
                             <div class="card-text">
                                 <p><?php echo $movies[$i]['name']; ?></p>
-                                <a href="./movieDetial.php?movie_id=<?php echo $movies[$i]['movie_id']; ?>" class="btn">See
-                                    more</a>
+                                <a href="./movieDetial.php?movie_id=<?php echo $movies[$i]['movie_id']; ?>" class="btn"> Book Ticket</a>
                             </div>
                         </div>
                     </div>

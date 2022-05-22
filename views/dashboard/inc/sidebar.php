@@ -1,4 +1,4 @@
-<?php include(dirname(__FILE__)."../../controllers/config.php"); ?>
+<?php include(dirname(__FILE__)."../../../../controllers/config.php"); ?>
 <div class="navigation">
             <ul style="padding-left: 0rem;">
                 <li>
@@ -47,7 +47,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="http://localhost/cinama/views/signin.php">
+                    <a href="http://localhost/cinama/controllers/logout.php">
                         <span class="icon"><i class="fa fa-sign-out" aria-hidden="true"></i></span>
 
                         <span class="titled">

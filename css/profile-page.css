@@ -1,6 +1,6 @@
 .float-left {
     float:left;
-    width:300px; // or 33% for equal width independent of parent width
+    width:300px;
 }
 .container-profile{
     width: 80%;
@@ -26,30 +26,15 @@
     align-items: center;
 }
 
-.contenido {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    justify-items: flex-end;
-    margin: 30px auto;
-    overflow: auto;
-    min-width: 440px;
-    max-width: 480px;
-    box-shadow: 0 0 10px rgb(202, 202, 204);
-    /*background-color: white;*/
-    border-radius: 2px;
-}
 .details {
     margin: 5px;
-    padding: 0 12px;
+    padding: 12px;
     background:white;
-    min-width: 200px;
-    max-width: 220px;
-    border-top: 1px dashed #c3c3c3;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .tinfo {
-    font-size: 0.85em;
-    font-weight: 300;
+    font-size: 16px;
+    font-weight: 700;
     color: #726405;
     font-family: 'Roboto', sans-serif;
     text-transform: uppercase;

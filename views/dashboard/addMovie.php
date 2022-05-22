@@ -22,7 +22,7 @@
 
 <body>
     <div class="dashcontainer">
-        <?php include '../inc/sidebar.php' ?>
+        <?php include './inc/sidebar.php' ?>
         <div class="main">
             <h1>Add New Movie</h1>
             <div class="include">

@@ -27,11 +27,11 @@ require_once('./../controllers/connection.php');
 			// exit;
 			if(empty($errors)){
 				
-                $sql = "SELECT email, password, type FROM admin WHERE email = '{$email}' 
+                $sql = "SELECT first_name as name, email, password, type FROM admin WHERE email = '{$email}' 
                         UNION
-                        SELECT email, password, type FROM customer WHERE email = '{$email}'
+                        SELECT first_name as name, email, password, type FROM customer WHERE email = '{$email}'
                         union
-                        SELECT email, password, type FROM theater_owner WHERE email = '{$email}' LIMIT 1";
+                        SELECT theater_name as name,email, password, type FROM theater_owner WHERE email = '{$email}' LIMIT 1";
 
 				// echo($sql);
 				// exit;
@@ -43,11 +43,10 @@ require_once('./../controllers/connection.php');
                
 							$_SESSION['id']= $row['id'];
 							if ($row['type'] == 1) {
-								$_SESSION['firstName']= $row['firstName'];
-								$_SESSION['lastName']= $row['lastName'];                    
+								$_SESSION['firstName']= $row['name'];                   
 							}
 							if ($row['type'] ==  2) {
-								$_SESSION['theaterName']= $row['theater_name'];                    
+								$_SESSION['theaterName']= $row['name'];                    
 							}
 							
 							$_SESSION['email']= $row['email'];
@@ -64,7 +63,7 @@ require_once('./../controllers/connection.php');
 	
 							}
 							if ($_SESSION['usertype'] == 0) {
-								header('Location: dashboard.php');
+								header('Location: http://localhost/cinama/views/dashboard.php');
 	
 							}
 						} 

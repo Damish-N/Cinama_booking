@@ -106,6 +106,7 @@ for ($i=0;$i<sizeof($theaters);$i++){
         <?php endforeach; ?>
     </div>
 
+    
     <div class="theaterCard">
         <?php if (sizeof($theaters_details) > 0) {
         for ($i = 0; $i < sizeof($theaters_details); $i++) {

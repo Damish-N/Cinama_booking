@@ -5,13 +5,17 @@ $movie_id =  $_GET['movie_id'];
 $theater_id = $_GET['theater_id'];
 $date = $_GET['date'];
 $time = $_GET['time'];
-$temp_no_odc_seat= $_POST['noOfOdc'];
-$temp_no_bal_seat = $_POST['noOfBal'];
-$temp_no_box = $_POST['noOfBox'];
+$temp_no_odc_seat= (int)$_POST['noOfOdc'];
+$temp_no_bal_seat =(int) $_POST['noOfBal'];
+$temp_no_box_seat = (int)$_POST['noOfBox'];
+var_dump($_POST);
+echo ($temp_no_odc_seat);
+echo ($temp_no_bal_seat);
+echo ($temp_no_box_seat);
 
 
 
-$tot = makeTotal($temp_no_odc_seat,$temp_no_bal_seat,$temp_no_box);
+$tot = makeTotal($temp_no_odc_seat,$temp_no_bal_seat,$temp_no_box_seat);
 $movie = getTheMovieById($movie_id);
 $theater = getTheTheater($theater_id);
 
@@ -53,7 +57,7 @@ $theater = getTheTheater($theater_id);
         </div>
         <div class="input-field payment">
             <input disabled value='' required type="text" name="NO_ODC" placeholder="NO BOXES ->"/>
-            <input disabled value='' required type="text" name="movie_name" placeholder='<?php echo $temp_no_box ?>'/>
+            <input disabled value='' required type="text" name="movie_name" placeholder='<?php echo $temp_no_box_seat ?>'/>
         </div>
         <div class="input-field payment">
             <input disabled value='' required type="text" name="NO_ODC" placeholder="TOTAL ->"/>
@@ -65,7 +69,7 @@ $theater = getTheTheater($theater_id);
     $total = $tot;
     $temp_no_odc_seat_stripe = $temp_no_odc_seat;
     $temp_no_bal_seat_stripe = $temp_no_bal_seat;
-    $temp_no_box_stripe = $temp_no_box;
+    $temp_no_box_stripe = $temp_no_box_seat;
     require '../views/testStripe.php'?>
     <?php
 

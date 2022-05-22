@@ -1,7 +1,6 @@
 <?php 
 require_once('../controllers/signin.php');
 $errors = array();
-//$_SESSION = array();
 ?>
 
 <!DOCTYPE html>
@@ -10,12 +9,10 @@ $errors = array();
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<!--    <link rel="icon" type="image/png" href="--><?php //echo BURL.'assets/img/basic/favicon.png'; ?><!--" />-->
     <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/style.css">
-<!--    <script type="text/javascript" src="--><?php //echo BURL.'assets/js/validateLogin.js'; ?><!--"></script>-->
     <link rel="stylesheet" href="../css/login.css">
-    <title></title>
+    <title>Sign In</title>
 </head>
 
 <body style="background-image: url(../image/h7-slide6.jpg);">
@@ -82,8 +79,8 @@ $errors = array();
 
                 <input type="submit" value="Sign In" name="signin-btn" class="btn solid" />
                 <div class="part headericon">
-                    <p style="color: white"> Dont have a account</p>
-                    <a href="http://localhost/cinama/views/joinus.php" class="join"> Join Us</a>
+                    <p style="color: white"> Dont have a account <a href="http://localhost/cinama/views/joinus.php" class="btn solid"> Join Us</a></p>
+                    
                 </div>
             </form>
 

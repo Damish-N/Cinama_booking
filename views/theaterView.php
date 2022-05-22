@@ -1,7 +1,7 @@
 <?php
 $id = $_GET['theater_id'];
 include "../controllers/theatersController.php";
-include(dirname(__FILE__) . "../controllers/config.php");
+include("../controllers/config.php");
 
 
 $theater = getTheTheater($id);
@@ -142,6 +142,7 @@ include '../common/header.php';
             </div>
         </div>
     </div>
+
     <div class="container">
         <div <?php if (sizeof($movies) == 0) { ?> hidden <?php } ?> class="horizontal-scroll">
             <button class="btn-scroll" id="btn-scroll-left" onclick="scrollHorizontal(1)"><i
@@ -152,8 +153,7 @@ include '../common/header.php';
 
             <div  class="movies-container">
 
-                <?php
-                if (sizeof($movies) > 0) {
+                <?php if (sizeof($movies) > 0) {
                     for ($i = 0; $i < sizeof($movies); $i++) {
                         echo '
                     <div class="story-div">

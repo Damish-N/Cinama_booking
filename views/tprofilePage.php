@@ -1,14 +1,9 @@
 <?php
 include "../controllers/userController.php";
-
-// echo $_SESSION['usertype'];
+echo $_SESSION['usertype'];
 if ($_SESSION['usertype'] == 1) {
-    
     $user = getUser($_SESSION['email']);
     $tickets = getTickets($user[0]['customer_id']);
-    // echo (sizeof($tickets));
-    // exit;
-    
 } else {
     $user = getTheater($_SESSION['email']);
     $movies = getTheMovieByIdUser($user[0]['theater_id']);
@@ -47,12 +42,10 @@ if ($_SESSION['usertype'] == 1) {
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../css/profile-page.css">
     <title>Profile</title>
-
 </head>
 
 <body>
     <?php require '../common/header.php' ?>
-
     <div class="page-content page-container" id="page-content">
         <div class="padding">
             <div class="row container d-flex justify-content-center mx-auto">
@@ -66,8 +59,8 @@ if ($_SESSION['usertype'] == 1) {
                                             class="img-radius" style="width: 150px;" alt="User-Profile-Image">
                                     </div>
                                     <h6 class="f-w-600">
-                                        <?php echo $user[0]['first_name'] . ' ' . $user[0]['last_name'] ?></h6>
-                                    <p><?php echo $user[0]['city'] ?></p>
+                                        <?php echo $user[0]['theater_name']  ?></h6>
+                                    <p><?php echo $user[0]['location'] ?></p>
                                     <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
                                 </div>
                             </div>
@@ -84,44 +77,58 @@ if ($_SESSION['usertype'] == 1) {
                                             <h6 class="text-muted f-w-400"><?php echo $user[0]['contact_no'] ?></h6>
                                         </div>
                                     </div>
+
+                                    <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Seat Details</h6>
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <p class="m-b-10 f-w-600">ODC</p>
+                                            <h6 class="text-muted f-w-400"><?php echo $user[0]['no_odc_seats'] ?></h6>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <p class="m-b-10 f-w-600">Balkeny</p>
+                                            <h6 class="text-muted f-w-400"><?php echo $user[0]['no_balcony_seats'] ?>
+                                            </h6>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <p class="m-b-10 f-w-600">Box TYpe</p>
+                                            <h6 class="text-muted f-w-400"><?php echo $user[0]['no_of_box'] ?></h6>
+                                        </div>
+                                    </div>
+
                                     <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Ticket Details</h6>
 
                                     <?php if (isset($_SESSION['usertype'])): ?>
-                                    <?php if ($_SESSION['usertype'] == 1): ?>
-                                    <?php if (sizeof($tickets) > 0):  ?>
-                                    <div class="tickets-show">
-                                        <?php for ($i = 0; $i < sizeof($tickets); $i++) { ?>
-                                        <div class="details">
-                                            <div class="tinfo">
-                                                <p>Number Of Tickets: <?php echo ($i + 1) ?></p>
+                                    <?php if ($_SESSION['usertype'] == 2): ?>
+                                    <div style="width: unset" class="theaterCard">
+                                        <?php if (sizeof($movies) > 0) {  ?>
+                                        <?php for ($i = 0; $i < sizeof($movies); $i++) { ?>
+                                        <div class="my-card">
+                                            <div class="card-content">
+                                                <div class="img-place">
+                                                    <div id="card-img"
+                                                        style="background-image: url(<?php echo get_url($movies[$i][0]['url']); ?>)">
+                                                    </div>
+                                                </div>
+                                                <div class="card-text">
+                                                    <p><?php print_r( $movies[$i][0]['name']); ?></p>
+                                                    <a href="./movieDetial.php?movie_id=<?php echo $movies[$i][0]['movie_id']; ?>"
+                                                        class="btn">See
+                                                        more</a>
+                                                </div>
                                             </div>
-                                            <div class="tinfo">
-                                                <p>Ticket ID :<?php echo $tickets[$i]['ticket_id'] ?></p>
-
-                                            </div>
-                                            <div class="tinfo">
-                                                <p>Movie Name :
-                                                    <?php  $theater = getTheMovieByIdUser($tickets[$i]['movie_id']);  echo '   ' . $theater[0]['name'];; ?>
-                                                </p>
-
-                                            </div>
-                                            <div class="tinfo">
-                                                <p>Date :
-                                                    <?php $timestamp = strtotime($tickets[$i]['show_date']); $day = date('D', $timestamp); echo $day . '   ' . $tickets[$i]['show_date'];; ?>
-                                                </p>
-                                            </div>
-                                        
                                         </div>
                                         <?php } ?>
-                                        <?php else: ?>
-                                        <h3 style="text-align: center ;padding: 25px;">No Detail Tickets
-                                        </h3>
-                                        <?php endif; ?>
-                                        <?php endif; ?>
-                                        <?php endif; ?>
-                                    </div>
 
+                                        <?php } else { ?>
+                                        <h3 style="text-align: center ;padding: 25px;color: #000;">No Detail Tickets
+                                        </h3>
+                                        <?php } ?>
+
+                                    </div>
+                                    <?php endif; ?>
+                                    <?php endif; ?>
                                 </div>
+
                             </div>
                         </div>
                     </div>
@@ -129,14 +136,8 @@ if ($_SESSION['usertype'] == 1) {
             </div>
         </div>
     </div>
-
-    <div class="container-profile">
-
-
-
-        <?php require '../common/footer.php' ?>
-
-
+    </div>
+    <?php require '../common/footer.php' ?>
 </body>
 
 </html>

@@ -1,3 +1,8 @@
+
+<?php
+include '../controllers/userController.php';
+
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -31,13 +36,23 @@
                     <select required class="select-movie" name="movieName" id="cars">
                         <?php
                             require_once ('../controllers/addMovieController.php');
-                            $options = getAllMovies();
+                            session_start();
+
+                            $email=$_SESSION['email'];
+
+                            $theater = getTheater($email);
+                            $options = getAllMovies($theater[0]['theater_id']);
                             for ($i=0;$i<count($options);$i++){
                                 echo '<option value='.$options[$i]['movie_id'].'>'.$options[$i]['name'].'</option>';
                             }
                         ?>
                     </select>
+
                 </div>
+<!--                --><?php
+//                session_start();
+//                echo '<h3> dsasa' .$_SESSION['email'].' </h3>';
+//                ?>
                 <div class="input-field">
                     <i class="fa fa-rss" aria-hidden="true"></i>
                     <input required type="date" name="date" placeholder="Date publish"/>

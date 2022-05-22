@@ -26,7 +26,10 @@
                         <span class="book-voters"><?php echo $retrieve_data_post[0]['votes'] ?> voters</span>
                     </div>
                     <div class="book-sum"><?php echo $retrieve_data_post[0]['description'] ?></div>
-                    <div class="book-see">See The Book</div>
+
+                    <div class="book-see">
+                        <a style="color: unset;background: unset;text-decoration: none" class="btn" href="http://localhost/cinama/views/movieDetial.php?movie_id=<?php echo $retrieve_data_post[0]['movie_id'] ?>">FIND OUT MORE <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                    </div>
                 </div>
             </div>
             <div class="book-cell">
@@ -53,7 +56,9 @@
                         <span class="book-voters"><?php echo $retrieve_data_post[1]['vote'] ?> voters</span>
                     </div>
                     <div class="book-sum"><?php echo $retrieve_data_post[1]['description'] ?> </div>
-                    <div class="book-see book-blue">See The Book</div>
+                    <div class="book-see">
+                        <a style="color: unset;background: unset;text-decoration: none" class="btn" href="http://localhost/cinama/views/movieDetial.php?movie_id=<?php echo $retrieve_data_post[1]['movie_id'] ?>">FIND OUT MORE <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                    </div>
                 </div>
             </div>
             <div class="book-cell">
@@ -80,7 +85,9 @@
                         <span class="book-voters"><?php echo $retrieve_data_post[2]['votes'] ?> voters</span>
                     </div>
                     <div class="book-sum"><?php echo $retrieve_data_post[2]['description'] ?> </div>
-                    <div class="book-see book-pink">See The Book</div>
+                    <div class="book-see">
+                        <a style="color: unset;background: unset;text-decoration: none" class="btn" href="http://localhost/cinama/views/movieDetial.php?movie_id=<?php echo $retrieve_data_post[2]['movie_id'] ?>">FIND OUT MORE <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                    </div>
                 </div>
             </div>
             <div class="book-cell">
@@ -107,7 +114,9 @@
                         <span class="book-voters"><?php echo $retrieve_data_post[3]['votes'] ?> voters</span>
                     </div>
                     <div class="book-sum"><?php echo $retrieve_data_post[3]['description'] ?></div>
-                    <div class="book-see book-yellow">See The Book</div>
+                    <div class="book-see">
+                        <a style="color: unset;background: unset;text-decoration: none" class="btn" href="http://localhost/cinama/views/movieDetial.php?movie_id=<?php echo $retrieve_data_post[3]['movie_id'] ?>">FIND OUT MORE <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                    </div>
                 </div>
             </div>
 

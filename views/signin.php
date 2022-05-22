@@ -1,6 +1,7 @@
 <?php 
 require_once('../controllers/signin.php');
-$errors = array(); 
+$errors = array();
+//$_SESSION = array();
 ?>
 
 <!DOCTYPE html>
@@ -80,9 +81,14 @@ $errors = array();
                 </div>
 
                 <input type="submit" value="Sign In" name="signin-btn" class="btn solid" />
+                <div class="part headericon">
+                    <p style="color: white"> Dont have a account</p>
+                    <a href="http://localhost/cinama/views/joinus.php" class="join"> Join Us</a>
+                </div>
             </form>
 
             </h5>
+
         </div>
 
     </div>

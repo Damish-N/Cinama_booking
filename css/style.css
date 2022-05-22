@@ -256,3 +256,19 @@ select:-webkit-autofill:focus {
   justify-content: center;
   margin-top: 30px;
 }
+.join{
+  margin-top: 100px;
+  padding: 2px 2px;
+  text-decoration: none;
+  width: 150px;
+  background-color: #444;
+  border: none;
+  outline: none;
+  height: 49px;
+  border-radius: 49px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.5s;
+}

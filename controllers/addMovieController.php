@@ -3,11 +3,11 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 //function for get all the movies
-function getAllMovies()
+function getAllMovies($theater_id)
 {
 
 
-    $query_1 = "SELECT movie_id FROM `movie_theater`where theater_id = 1";
+    $query_1 = "SELECT movie_id FROM `movie_theater`where theater_id = '$theater_id'";
     $already_added_movies = executeQuery($query_1);
     if (sizeof($already_added_movies) == 0) {
         $query_2 = "SELECT * FROM `movie` WHERE movie_id";
@@ -30,6 +30,11 @@ function getAllMovies()
 
 
 }
+function getTheaterFrom($email){
+    $query = "SELECT * FROM `theater_owner` WHERE  `email` = '$email'";
+    return executeQuery($query);
+}
+
 
 function scheduling_days($data)
 {
@@ -67,10 +72,10 @@ function getPatternId($day,$pattern){
     return ($day*8)+$pattern;
 }
 
-function executeSchedule($data_movie_id, $data_date, $data_no_of_dates, $monday_day_pattern_id, $tuesday_day_pattern_id, $wednesday_day_pattern_id, $thursday_day_pattern_id, $friday_day_pattern_id, $saturday_day_pattern_id, $sunday_day_pattern_id)
+function executeSchedule($data_movie_id, $data_date, $data_no_of_dates, $monday_day_pattern_id, $tuesday_day_pattern_id, $wednesday_day_pattern_id, $thursday_day_pattern_id, $friday_day_pattern_id, $saturday_day_pattern_id, $sunday_day_pattern_id,$theater_id)
 {
     $query = "INSERT INTO `movie_theater`(`movie_id`, `theater_id`)
-                VALUES ('$data_movie_id',1)";
+                VALUES ('$data_movie_id','$theater_id')";
 
     executeQueryInsert($query,0);
 
@@ -80,7 +85,7 @@ function executeSchedule($data_movie_id, $data_date, $data_no_of_dates, $monday_
                        VALUES ('$monday_day_pattern_id','$tuesday_day_pattern_id','$wednesday_day_pattern_id',
                                '$thursday_day_pattern_id','$friday_day_pattern_id','$saturday_day_pattern_id',
                                                        '$sunday_day_pattern_id','$data_no_of_dates','$data_date',
-                                                                               '$data_movie_id',1,1)";
+                                                                               '$data_movie_id','$theater_id',1)";
     executeQueryInsert($query_1,1);
 
 }
@@ -105,6 +110,7 @@ function executeQueryInsert($query,$final){
     $result = mysqli_query($connection, $query);
     if($result && $final==1){
         echo '<script>alert("Success"); </script>';
+        header('Location:http://localhost/cinama/home.php');
     }
     mysqli_close($connection);
     unset($_POST);

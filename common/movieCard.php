@@ -11,7 +11,7 @@
                 <p class="surfCardContent">'.$retrieve_data_imdm_movies[$i]['name']. '</p>
 
                 <div class="read-more">
-                    <a class="btn" href="">FIND OUT MORE <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                    <a class="btn" href="http://localhost/cinama/views/movieDetial.php?movie_id='.$retrieve_data_imdm_movies[$i]['movie_id'].'">FIND OUT MORE <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                 </div>
             </div>
         </div>;';

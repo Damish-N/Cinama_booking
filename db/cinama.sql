@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 21, 2022 at 03:25 PM
+-- Generation Time: May 22, 2022 at 07:40 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.8
 
@@ -205,7 +205,10 @@ INSERT INTO `movie_theater` (`id`, `movie_id`, `theater_id`) VALUES
 (7, 6, 1),
 (12, 1, 2),
 (13, 4, 1),
-(14, 12, 1);
+(14, 12, 1),
+(15, 1, 5),
+(16, 12, 7),
+(17, 5, 7);
 
 -- --------------------------------------------------------
 
@@ -251,7 +254,10 @@ INSERT INTO `shedule` (`schedule_id`, `monday`, `tuesday`, `wednesday`, `thursda
 (7, 4, 12, 20, 25, 33, 41, 49, 3, '2022-05-20', 6, 1, 1),
 (10, 8, 9, 17, 25, 33, 41, 49, 3, '2022-05-20', 1, 2, 0),
 (11, 1, 12, 17, 29, 33, 41, 49, 3, '2022-05-20', 4, 1, 1),
-(12, 8, 9, 24, 25, 33, 48, 49, 10, '2022-05-20', 12, 1, 1);
+(12, 8, 9, 24, 25, 33, 48, 49, 10, '2022-05-20', 12, 1, 1),
+(13, 4, 11, 19, 27, 35, 44, 52, 4, '2022-05-26', 1, 5, 1),
+(14, 8, 9, 17, 25, 33, 41, 49, 5, '2022-05-23', 12, 7, 1),
+(15, 4, 11, 20, 27, 35, 43, 52, 15, '2022-05-04', 5, 7, 1);
 
 -- --------------------------------------------------------
 
@@ -284,7 +290,8 @@ INSERT INTO `theater_owner` (`theater_id`, `theater_name`, `email`, `password`, 
 (3, 'Liberty', 'salesfreshworldexporters@gmail.com', '$2y$10$MfSXOuz79iBl4Eo3tmjZ9eSAXETHhFcVlQiecgeSf6TronNDBWa7G', 'vfasd', 6666, 15, 35, 5, '0000-00-00 00:00:00', 2, 1),
 (5, 'Vijee', 'vije@gmail.com', '$2y$10$c54vGss8CBIbxQrwXt72GenqsdJwezKOeEZ7GgntWqg5nAB9zEMs2', 'Walahanduwa', 776560118, 20, 25, 5, '2022-05-10 08:35:50', 2, 1),
 (6, 'Sony', 'sony@gmail.com', '$2y$10$Ux4FYTu2mOAErYVLE0PI9eM06v1j5aqUURyRW9EJhuOMTqWwBUB8W', 'galle', 771234567, 5, 25, 5, '2022-05-10 08:35:50', 2, 0),
-(7, 'Theater-1', 'theater@gmail.com', '$2y$10$lL.ncutwG07u4QMDv4ytpe8GTmdfxAuLyh2DCtW4F81E913F3fvwO', 'Galle', 776560118, 20, 25, 3, '2022-05-10 08:35:50', 2, 1);
+(7, 'Theater-1', 'theater@gmail.com', '$2y$10$lL.ncutwG07u4QMDv4ytpe8GTmdfxAuLyh2DCtW4F81E913F3fvwO', 'Galle', 776560118, 20, 25, 3, '2022-05-10 08:35:50', 2, 1),
+(8, 'Sandro', 'da@gmail.com', '$2y$10$Kabm.R2egCwuh7TwCVw59ue2m4bPjb4Yz6xlW9uUHo5OZ1PPcMZBy', 'Vavniya', 776560118, 10, 15, 3, '2022-05-10 08:35:50', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -324,7 +331,8 @@ INSERT INTO `ticket` (`ticket_id`, `no_balcony_seats`, `no_odc_seats`, `no_of_bo
 (13, 0, 3, 0, 2, '2022-05-20', 5, 1, 1),
 (14, 4, 2, 0, 2, '2022-05-23', 6, 1, 1),
 (15, 3, 0, 0, 1, '2022-05-22', 5, 5, 1),
-(16, 3, 0, 0, 1, '2022-05-25', 6, 12, 1);
+(16, 3, 0, 0, 1, '2022-05-25', 6, 12, 1),
+(17, 3, 0, 0, 2, '2022-05-24', 5, 1, 1);
 
 --
 -- Indexes for dumped tables
@@ -423,7 +431,7 @@ ALTER TABLE `movie`
 -- AUTO_INCREMENT for table `movie_theater`
 --
 ALTER TABLE `movie_theater`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `payment`
@@ -435,19 +443,19 @@ ALTER TABLE `payment`
 -- AUTO_INCREMENT for table `shedule`
 --
 ALTER TABLE `shedule`
-  MODIFY `schedule_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `schedule_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `theater_owner`
 --
 ALTER TABLE `theater_owner`
-  MODIFY `theater_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `theater_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `ticket`
 --
 ALTER TABLE `ticket`
-  MODIFY `ticket_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `ticket_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- Constraints for dumped tables
